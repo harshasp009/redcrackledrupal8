@@ -1,0 +1,39 @@
+<?php
+
+/**
+ * @file
+ * Module file for the customization.
+ */
+
+
+
+function _get_entity() {
+  $node = \Drupal::routeMatch()->getParameter('node');
+  $nid = $node->id();
+  $nodes =\Drupal\node\Entity\Node::load($nid);
+  $field_value = $nodes->get('field_portfolio_category')->target_id;
+  //$term_name = \Drupal\taxonomy\Entity\Term::load($field_value)->get('name')->value;
+  $query = "SELECT node_field_data.title AS node_field_data_title, node_field_data.nid AS nid, node__body.field_teaser_value as body_summary,node_field_data.created AS node_field_data_created
+FROM node_field_data node_field_data inner join node__field_teaser node__body on node__body.entity_id = node_field_data.nid
+INNER JOIN taxonomy_index taxonomy_index ON node_field_data.nid = taxonomy_index.nid
+WHERE (( (taxonomy_index.tid = ".$field_value.") )AND(( (node_field_data.status = '1') AND (node_field_data.type IN  ('blog')) AND (node_field_data.nid != ".$nid.") )))
+ORDER BY node_field_data.created DESC";
+ $result = db_query_range($query,0,3);
+  $titles = "";
+  $body_sum = "";
+  $output = "";
+  foreach ($result as $record) {
+    // Perform operations on $record->title, etc. here.
+    $titles = $record->node_field_data_title;
+    $body_sum = $record->body_summary;
+    $node_id = $record->nid;
+    if($titles){
+      $output .= "<div class='relatedpost'> <h1>".$titles . "</h1><br />";
+      $output .= "<p>".$body_sum. "</p><br />";
+      $output .= "<a href ='/node/".$node_id."'>Read More > </a></div>";
+    } else {
+      $output .= "No Related Blog Post Found";
+    }
+  }
+  return $output;
+}

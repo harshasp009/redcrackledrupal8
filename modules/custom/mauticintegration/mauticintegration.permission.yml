@@ -1,0 +1,4 @@
+administer mautic configuration:
+  title: 'Administer mautic integration'
+  description: 'Access the mautic settings page.'
+  restrict access: FALSE

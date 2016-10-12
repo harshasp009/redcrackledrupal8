@@ -1,0 +1,325 @@
+From 4f131904163b88c6aafafd55f5f77ce4456f23fe Mon Sep 17 00:00:00 2001
+From: Florent Torregrosa <florent.torregrosa@gmail.com>
+Date: Sat, 30 Jul 2016 16:23:37 +0200
+Subject: [PATCH] Issue #2634054: Menu Level 2+ not working.
+
+---
+ bootstrap.info.yml                                 |  1 +
+ bootstrap.libraries.yml                            |  7 +++
+ .../optional/block.block.bootstrap_main_menu.yml   |  2 +-
+ js/misc/dropdown-submenu.js                        | 43 ++++++++++++++++++
+ .../less/less/component/dropdown-submenu.less      | 53 ++++++++++++++++++++++
+ starterkits/less/less/overrides.less               |  1 +
+ starterkits/sass/sass/_overrides.scss              |  1 +
+ .../sass/sass/component/_dropdown-submenu.scss     | 53 ++++++++++++++++++++++
+ templates/menu/menu--account.html.twig             |  9 +++-
+ templates/menu/menu--main.html.twig                |  9 +++-
+ templates/menu/menu.html.twig                      |  9 +++-
+ 11 files changed, 181 insertions(+), 7 deletions(-)
+ create mode 100644 js/misc/dropdown-submenu.js
+ create mode 100644 starterkits/less/less/component/dropdown-submenu.less
+ create mode 100644 starterkits/sass/sass/component/_dropdown-submenu.scss
+
+diff --git a/bootstrap.info.yml b/bootstrap.info.yml
+index 153d89f..4d6578c 100644
+--- a/bootstrap.info.yml
++++ b/bootstrap.info.yml
+@@ -21,6 +21,7 @@ regions:
+
+ libraries:
+   - 'bootstrap/theme'
++  - 'bootstrap/dropdown-submenu'
+
+ libraries-extend:
+   core/drupal.ajax:
+diff --git a/bootstrap.libraries.yml b/bootstrap.libraries.yml
+index 615eb0f..31636c2 100644
+--- a/bootstrap.libraries.yml
++++ b/bootstrap.libraries.yml
+@@ -35,6 +35,13 @@ dropdown:
+   dependencies:
+     - bootstrap/theme
+
++dropdown-submenu:
++  js:
++    js/misc/dropdown-submenu.js: {}
++  dependencies:
++    - core/jquery
++    - core/drupal
++
+ modal:
+   js:
+     js/modal.js: {}
+diff --git a/config/optional/block.block.bootstrap_main_menu.yml b/config/optional/block.block.bootstrap_main_menu.yml
+index 2b4e81d..1c81be8 100644
+--- a/config/optional/block.block.bootstrap_main_menu.yml
++++ b/config/optional/block.block.bootstrap_main_menu.yml
+@@ -19,5 +19,5 @@ settings:
+   provider: system
+   label_display: '0'
+   level: 1
+-  depth: 2
++  depth: 0
+ visibility: {  }
+diff --git a/js/misc/dropdown-submenu.js b/js/misc/dropdown-submenu.js
+new file mode 100644
+index 0000000..cf89892
+--- /dev/null
++++ b/js/misc/dropdown-submenu.js
+@@ -0,0 +1,43 @@
++/**
++ * @file
++ * Allow to have dropdown submenu.
++ */
++
++(function ($, Drupal) {
++  'use strict';
++
++  /**
++   * Initialize dropdown submenu.
++   *
++   * @type {Drupal~behavior}
++   */
++  Drupal.behaviors.dialog = {
++    attach: function (context, settings) {
++      var $context = $(context);
++
++      $context.find('ul.dropdown-menu [data-toggle=dropdown]').on('click', function(event) {
++        // Avoid following the href location when clicking.
++        event.preventDefault();
++        // Avoid having the menu to close when clicking.
++        event.stopPropagation();
++        // If a menu is already open we close it.
++        //$('ul.dropdown-menu [data-toggle=dropdown]').parent().removeClass('open');
++        // Opening the one you clicked on.
++        $(this).parent().addClass('open');
++
++        var menu = $(this).parent().find("ul");
++        var menupos = menu.offset();
++        var newpos = 0;
++
++        if ((menupos.left + menu.width()) + 30 > $(window).width()) {
++          newpos = - menu.width();
++        }
++        else {
++          newpos = $(this).parent().width();
++        }
++        menu.css({ left:newpos });
++      });
++    }
++  };
++
++})(jQuery, Drupal);
+diff --git a/starterkits/less/less/component/dropdown-submenu.less b/starterkits/less/less/component/dropdown-submenu.less
+new file mode 100644
+index 0000000..56a5f3f
+--- /dev/null
++++ b/starterkits/less/less/component/dropdown-submenu.less
+@@ -0,0 +1,53 @@
++/**
++ * Dropdown submenu styling.
++ */
++.dropdown-submenu {
++  position: relative;
++}
++
++.dropdown-submenu > .dropdown-menu {
++  top: 0;
++  left: 100%;
++  margin-top: -6px;
++  margin-left: -1px;
++  -webkit-border-radius: 0 @border-radius-base @border-radius-base @border-radius-base;
++  -moz-border-radius: 0 @border-radius-base @border-radius-base @border-radius-base;
++  border-radius: 0 @border-radius-base @border-radius-base @border-radius-base;
++}
++
++/* Vertical caret on mobile. */
++.dropdown-submenu > a:after {
++  content: " ";
++  float: right;
++  display: block;
++  width: 0;
++  height: 0;
++  margin-top: 9px;
++  margin-right: 10px;
++  border-top: 4px solid #000000;
++  border-right: 4px solid transparent;
++  border-bottom: 0;
++  border-left: 4px solid transparent;
++
++  /* Horizontal caret on desktop. */
++  @media @tablet {
++    margin-top: 7px;
++    margin-right: -10px;
++    border-top: 4px solid transparent;
++    border-right: 0;
++    border-bottom: 4px solid transparent;
++    border-left: 4px solid #000000;
++  }
++}
++
++.dropdown-submenu.pull-left {
++  float: none;
++}
++
++.dropdown-submenu.pull-left > .dropdown-menu {
++  left: -100%;
++  margin-left: 10px;
++  -webkit-border-radius: @border-radius-base 0 @border-radius-base @border-radius-base;
++  -moz-border-radius: @border-radius-base 0 @border-radius-base @border-radius-base;
++  border-radius: @border-radius-base 0 @border-radius-base @border-radius-base;
++}
+diff --git a/starterkits/less/less/overrides.less b/starterkits/less/less/overrides.less
+index bad67fa..81e464e 100644
+--- a/starterkits/less/less/overrides.less
++++ b/starterkits/less/less/overrides.less
+@@ -2,6 +2,7 @@
+ // specific Drupal libraries are used.
+ @import "component/alert";
+ @import "component/ajax";
++@import "component/dropdown-submenu";
+ @import "component/field";
+ @import "component/file";
+ @import "component/filter";
+diff --git a/starterkits/sass/sass/_overrides.scss b/starterkits/sass/sass/_overrides.scss
+index 4814669..a8a5534 100644
+--- a/starterkits/sass/sass/_overrides.scss
++++ b/starterkits/sass/sass/_overrides.scss
+@@ -2,6 +2,7 @@
+ // specific Drupal libraries are used.
+ @import "component/alert";
+ @import "component/ajax";
++@import "component/dropdown-submenu";
+ @import "component/field";
+ @import "component/file";
+ @import "component/filter";
+diff --git a/starterkits/sass/sass/component/_dropdown-submenu.scss b/starterkits/sass/sass/component/_dropdown-submenu.scss
+new file mode 100644
+index 0000000..8e0223b
+--- /dev/null
++++ b/starterkits/sass/sass/component/_dropdown-submenu.scss
+@@ -0,0 +1,53 @@
++/**
++ * Dropdown submenu styling.
++ */
++.dropdown-submenu {
++  position: relative;
++}
++
++.dropdown-submenu > .dropdown-menu {
++  top: 0;
++  left: 100%;
++  margin-top: -6px;
++  margin-left: -1px;
++  -webkit-border-radius: 0 $border-radius-base $border-radius-base $border-radius-base;
++  -moz-border-radius: 0 $border-radius-base $border-radius-base $border-radius-base;
++  border-radius: 0 $border-radius-base $border-radius-base $border-radius-base;
++}
++
++/* Vertical caret on mobile. */
++.dropdown-submenu > a:after {
++  content: " ";
++  float: right;
++  display: block;
++  width: 0;
++  height: 0;
++  margin-top: 9px;
++  margin-right: 10px;
++  border-top: 4px solid #000000;
++  border-right: 4px solid transparent;
++  border-bottom: 0;
++  border-left: 4px solid transparent;
++
++  /* Horizontal caret on desktop. */
++  @media #{$tablet} {
++    margin-top: 7px;
++    margin-right: -10px;
++    border-top: 4px solid transparent;
++    border-right: 0;
++    border-bottom: 4px solid transparent;
++    border-left: 4px solid #000000;
++  }
++}
++
++.dropdown-submenu.pull-left {
++  float: none;
++}
++
++.dropdown-submenu.pull-left > .dropdown-menu {
++  left: -100%;
++  margin-left: 10px;
++  -webkit-border-radius: $border-radius-base 0 $border-radius-base $border-radius-base;
++  -moz-border-radius: $border-radius-base 0 $border-radius-base $border-radius-base;
++  border-radius: $border-radius-base 0 $border-radius-base $border-radius-base;
++}
+diff --git a/templates/menu/menu--account.html.twig b/templates/menu/menu--account.html.twig
+index ee8c8ce..ef9ab71 100644
+--- a/templates/menu/menu--account.html.twig
++++ b/templates/menu/menu--account.html.twig
+@@ -37,11 +37,16 @@
+           'expanded',
+           'dropdown',
+           item.in_active_trail ? 'active',
++          menu_level >= 1 and item.below ? 'dropdown-submenu',
+         ]
+       %}
+-      {% if menu_level == 0 and item.is_expanded %}
++      {% if item.is_expanded %}
+         <li{{ item.attributes.addClass(item_classes) }}>
+-        <a href="{{ item.url }}" class="dropdown-toggle" data-target="#" data-toggle="dropdown">{{ item.title }} <span class="caret"></span></a>
++        <a href="{{ item.url }}" class="dropdown-toggle" data-target="#" data-toggle="dropdown">{{ item.title }}
++          {% if menu_level == 0 %}
++            <span class="caret"></span>
++          {% endif %}
++        </a>
+       {% else %}
+         <li{{ item.attributes.addClass(item_classes) }}>
+         {{ link(item.title, item.url) }}
+diff --git a/templates/menu/menu--main.html.twig b/templates/menu/menu--main.html.twig
+index b206001..5121663 100644
+--- a/templates/menu/menu--main.html.twig
++++ b/templates/menu/menu--main.html.twig
+@@ -37,11 +37,16 @@
+           'expanded',
+           'dropdown',
+           item.in_active_trail ? 'active',
++          menu_level >= 1 and item.below ? 'dropdown-submenu',
+         ]
+       %}
+-      {% if menu_level == 0 and item.is_expanded %}
++      {% if item.is_expanded %}
+         <li{{ item.attributes.addClass(item_classes) }}>
+-        <a href="{{ item.url }}" class="dropdown-toggle" data-target="#" data-toggle="dropdown">{{ item.title }} <span class="caret"></span></a>
++        <a href="{{ item.url }}" class="dropdown-toggle" data-target="#" data-toggle="dropdown">{{ item.title }}
++          {% if menu_level == 0 %}
++            <span class="caret"></span>
++          {% endif %}
++        </a>
+       {% else %}
+         <li{{ item.attributes.addClass(item_classes) }}>
+         {{ link(item.title, item.url) }}
+diff --git a/templates/menu/menu.html.twig b/templates/menu/menu.html.twig
+index 2aa2c53..b95ab98 100644
+--- a/templates/menu/menu.html.twig
++++ b/templates/menu/menu.html.twig
+@@ -37,11 +37,16 @@
+           'expanded',
+           'dropdown',
+           item.in_active_trail ? 'active',
++          menu_level >= 1 and item.below ? 'dropdown-submenu',
+         ]
+       %}
+-      {% if menu_level == 0 and item.is_expanded %}
++      {% if item.is_expanded %}
+         <li{{ item.attributes.addClass(item_classes) }}>
+-        <a href="{{ item.url }}" class="dropdown-toggle" data-target="#" data-toggle="dropdown">{{ item.title }} <span class="caret"></span></a>
++        <a href="{{ item.url }}" class="dropdown-toggle" data-target="#" data-toggle="dropdown">{{ item.title }}
++          {% if menu_level == 0 %}
++            <span class="caret"></span>
++          {% endif %}
++        </a>
+       {% else %}
+         <li{{ item.attributes.addClass(item_classes) }}>
+         {{ link(item.title, item.url) }}
+--
+2.1.4

@@ -1,0 +1,5 @@
+name: Mautic Integration
+description: Integration of mautic forms.
+type: module
+core: 8.x
+version: VERSION

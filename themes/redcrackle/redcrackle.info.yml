@@ -1,0 +1,36 @@
+name: redcrackle
+type: theme
+description: This is a redcrackle sub theme of bootstrap
+core: 8.x
+# Defines the base theme
+base theme: bootstrap
+# Defines libraries group in which we can add css/js.
+libraries:
+  - redcrackle/global-styling
+  - redcrackle/particle
+  - redcrackle/dropdown-submenu
+# Regions
+regions:
+  header: Header
+  featured: Featured
+  content: Content
+  sidebar_first: First sidebar
+  sidebar_second: Second sidebar
+  footer: Footer
+  header_menu: Header Menu
+  tile_content: Tile Content
+  recent_project: Recent Project
+  about_us: About Us
+  from_blog: From Blog
+  latest_tweets: Latest Tweets
+  get_touch: Get Touch
+  need_quote: Need Quote
+  banner: banner
+  requuest_quotes: Request Qoutes
+  contact_us_header: Contact Us Header
+  contact_details: Contact Details
+  prot_filter: Profolio Filter
+  content_title: Content Title
+  blog_search: Blog Search
+  related_post: Related Post
+  simple_news_block: Simple News Block

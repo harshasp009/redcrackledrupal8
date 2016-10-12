@@ -1,0 +1,6 @@
+mauticintegration.settings:
+  title: 'Mautic admin Setting'
+  description: 'Administer mautic admin settings'
+  route_name: mauticintegration.settings
+  parent: system.admin_config_development
+  weight: 10

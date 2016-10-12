@@ -1,0 +1,6 @@
+less_preprocessor.settings:
+  title: 'LESS Preprocessor'
+  description: 'Administer LESS Preprocessor settings'
+  route_name: less_preprocessor.settings
+  parent: system.admin_config_development
+  weight: 10

@@ -1,0 +1,7 @@
+mauticintegration.settings:
+  path: '/admin/config/development/mautic/settings'
+  defaults:
+    _form: '\Drupal\mauticintegration\Form\MauticSettingForm'
+    _title: 'Mautic Integration'
+  requirements:
+    _permission: 'administer mautic configuration'

@@ -1,0 +1,7 @@
+less_preprocessor.settings:
+  path: '/admin/config/development/less_preprocessor'
+  defaults:
+    _title: 'LESS Preprocessor'
+    _form: '\Drupal\less_preprocessor\Form\LessPreprocessorForm'
+  requirements:
+    _permission: 'LESS_PREPROCESSOR_PERMISSION'

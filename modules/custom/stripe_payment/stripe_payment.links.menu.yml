@@ -1,0 +1,6 @@
+stripe_payment.settings:
+  title: 'Stripe Payment Setting'
+  description: 'Administer stripe payment admin settings'
+  route_name: stripe_payment.settings
+  parent: system.admin_config_development
+  weight: 10

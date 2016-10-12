@@ -1,0 +1,152 @@
+<?php
+
+/**
+ * @file
+ * Contains theme override functions and preprocess functions
+ */
+
+use Drupal\Core\Template\RenderWrapper;
+use Drupal\Core\Template\Attribute;
+use Drupal\search\Form\SearchBlockForm;
+use Drupal\Component\Utility\SafeMarkup;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\system\Form\ThemeSettingsForm;
+use Drupal\file\Entity\File;
+use Drupal\Core\Url;
+use Drupal\file\Plugin\Core\Entity\FileInterface;
+use Drupal\Component\Utility\Html;
+
+/**
+ * Implements hook_form_system_theme_settings_alter().
+ */
+function redcrackle_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+
+  $form['redcrackle']['social_icon'] = array(
+    '#type' => 'details',
+    '#title' => t('Social Media Link'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+  );
+
+  $form['redcrackle']['social_icon']['facebook_url'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Facebook Link'),
+    '#default_value' => theme_get_setting('facebook_url'),
+  );
+
+  $form['redcrackle']['social_icon']['twitter_url'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Twitter Link'),
+    '#default_value' => theme_get_setting('twitter_url'),
+  );
+
+  $form['redcrackle']['social_icon']['google_url'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Google Plus Link'),
+    '#default_value' => theme_get_setting('google_url'),
+  );
+
+  $form['redcrackle']['social_icon']['linkdin_url'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Linkdin Link'),
+    '#default_value' => theme_get_setting('linkdin_url'),
+  );
+
+  $form['redcrackle']['social_icon']['rss_url'] = array(
+    '#type' => 'textfield',
+    '#title' => t('RSS Link'),
+    '#default_value' => theme_get_setting('rss_url'),
+  );
+
+  //$form['#submit'][] = 'redcrackle_settings_form_submit';
+}
+
+/**
+ * Implements hook_preprocess_block() for block templates.
+ */
+
+function redcrackle_preprocess_block(&$variables) {
+  $variables['facebook_url'] = theme_get_setting('facebook_url');
+  $variables['twitter_url'] = theme_get_setting('twitter_url');
+  $variables['google_url'] = theme_get_setting('google_url');
+  $variables['linkdin_url'] = theme_get_setting('linkdin_url');
+  $variables['rss_url'] = theme_get_setting('rss_url');
+
+  //override of simple block
+//  $form = \Drupal::formBuilder()->getForm('simplenews_subscriptions_block');
+//  $variables['test'] = $form;
+
+}
+//function redcrackle_preprocess_node(&$variables) {
+//  // Note: you'll probably want this only for certain content types.
+//  if ($variables['node']->getType() == 'blog') {
+//    $variables['comment_count'] = $variables['node']->get('comment_body')->comment_count;
+//  }
+//}
+function redcrackle_preprocess_node(&$variables) {
+  $nid = $variables['node']->nid->value;
+  $num_comment = db_query('SELECT comment_count FROM {comment_entity_statistics} WHERE entity_id = ' . $nid)->fetchAssoc();
+  $variables['comment_count'] = $num_comment['comment_count'];
+
+  //for printing block inside node template
+
+  $blocks = entity_load_multiple_by_properties('block', array('theme' => 'redcrackle', 'region' => 'blog_search'));
+
+  uasort($blocks, 'Drupal\block\Entity\Block::sort');
+  $build = array();
+  foreach ($blocks as $key => $block) {
+    if ($block->access('view')) {
+      $build[$key] = entity_view($block, 'block');
+    }
+  }
+
+  $variables['blog_searchs'] = $build;
+
+}
+/**
+ * Implements hook_preprocess_comment
+ */
+function redcrackle_preprocess_comment(&$variables) {
+  // Getting the node creation time stamp from the comment object.
+  $date = $variables['comment']->getCreatedTime();
+  // Here you can use drupal's format_date() function, or some custom php date formatting.
+  $variables['created'] = \Drupal::service('date.formatter')->format($date, 'long');
+  //$variables['created'] = $date;
+  //$variables['submitted'] = t('@username commented !datetime', array('@username' => $variables['author'], '!datetime' => '<span class="comments-ago">' . $variables['created'] . ' ago </span>'));
+}
+function redcrackle_preprocess_page_title(&$variables) {
+
+  // Load the node entity from current route
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+
+    // Load the label of the bundle
+    $bundle_label = \Drupal::entityTypeManager()
+      ->getStorage('node_type')
+      ->load($node->bundle())
+      ->label();
+    //$variables['title_type'] = $bundle_label;
+     if($node->bundle() == 'blog') {
+       $variables['title'] = 'Blog/ '.$node->getTitle();
+     }
+    // Set the page title
+
+  }
+}
+function redcrackle_page_attachments(array &$attachments) {
+  $is_front_page = \Drupal::service('path.matcher')->isFrontPage();
+  if ($is_front_page) {
+    $attachments['#attached']['library'][] = 'redcrackle/particle';
+  }
+}
+
+
+///**
+// * Implements hook_theme_suggestions_HOOK_alter().
+// */
+//function redcrackle_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+//
+//  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+//    $content_type = $node->bundle();
+//    $suggestions[] = 'page__'.$content_type;
+//  }
+//}

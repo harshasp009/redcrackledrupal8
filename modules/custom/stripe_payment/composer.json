@@ -1,0 +1,9 @@
+{
+  "name": "drupal/stripe_payment",
+  "description": "Stripe Payment",
+  "type": "drupal-module",
+  "license": "GPL-2.0+",
+  "require": {
+    "stripe/stripe-php": "3.*"
+  }
+}

@@ -1,0 +1,45 @@
+<div {{ attributes }}>
+    {{ title_prefix }}
+    {% if label %}
+        <h2 {{ title_attributes }}>{{ label }}</h2>
+    {% endif %}
+    {{ title_suffix }}
+    {% block content %}
+        <div class = "need_quotes">
+        <div class="region_quote">
+            {{ content }}
+        </div>
+    {% endblock %}
+    <div class="soc-links">
+        <ul>
+            <li>
+                {% if facebook_url %}
+                    <a href="{{ facebook_url }}"  class="facebook" target="_blank" ><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+                {% endif %}
+            </li>
+            <li>
+                {% if twitter_url %}
+                    <a href="{{ twitter_url }}"  class="facebook" target="_blank" ><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                {% endif %}
+            </li>
+            <li>
+                {% if google_url %}
+                    <a href="{{ google_url }}"  class="facebook" target="_blank" ><i class="fa fa-google-plus-official" aria-hidden="true"></i></a>
+                {% endif %}
+            </li>
+            <li>
+                {% if linkdin_url %}
+                    <a href="{{ linkdin_url }}"  class="facebook" target="_blank" ><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+                {% endif %}
+            </li>
+            <li>
+                {% if rss_url %}
+                    <a href="{{ rss_url }}"  class="facebook" target="_blank" ><i class="fa fa-rss-square" aria-hidden="true"></i></a>
+                {% endif %}
+            </li>
+        </ul>
+    </div>
+
+
+        </div>
+</div>

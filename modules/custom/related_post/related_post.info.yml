@@ -1,0 +1,5 @@
+name: Related Post
+description: Related Post for the blog content type.
+type: module
+core: 8.x
+version: VERSION

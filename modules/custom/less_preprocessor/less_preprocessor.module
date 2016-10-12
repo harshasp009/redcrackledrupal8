@@ -1,0 +1,23 @@
+<?php
+/**
+ * Implements hook_rebuild()
+ */
+
+require_once __DIR__ .'/lessphp/lessc.inc.php';
+//
+//function less_preprocessor_rebuild() {
+//
+//  //$less = new lessc;
+//
+//
+//}
+
+function _less_preprocessor_generate_css($input_file_path,$destination_file_path) {
+  $source = drupal_get_path('theme','redcrackle')."/less/".$input_file_path;
+  $destination = drupal_get_path('theme','redcrackle')."/css/".$destination_file_path;
+  $less = new lessc;
+  $less_compiled = $less->compileFile($source);
+  file_put_contents($destination,$less_compiled);
+  return "successfully created the css file";
+
+}

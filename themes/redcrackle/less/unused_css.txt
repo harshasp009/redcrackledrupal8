@@ -1,0 +1,20 @@
+this are below css which may required at the during development progress..
+
+1. below css for mobile menu
+
+.navbar-left,.navbar-right {
+      float: none !important;
+    }
+
+.navbar-nav>li {
+      float: none;
+    }
+
+    .navbar-default .navbar-collapse {
+          height: auto !important;
+          border-bottom: none !important;
+        }
+
+        nav ul li a {
+              color: #ffffff ;
+            }

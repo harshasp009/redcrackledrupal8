@@ -1,0 +1,4 @@
+administer stripe payment configuration:
+  title: 'Administer Stripe payment setting'
+  description: 'Access the stripe payment settings page.'
+  restrict access: FALSE

@@ -1,0 +1,7 @@
+name: Stripe Payment
+description: provide stripe payment gateway support.
+type: module
+core: 8.x
+version: VERSION
+dependencies:
+  - libraries

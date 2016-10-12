@@ -1,0 +1,324 @@
+{%
+set navbar_classes = [
+'navbar',
+theme.settings.navbar_inverse ? 'navbar-inverse' : 'navbar-default',
+theme.settings.navbar_position ? 'navbar-' ~ theme.settings.navbar_position|clean_class : container,
+]
+%}
+<header{{ navbar_attributes.addClass(navbar_classes) }} id="navbar" role="banner">
+    <div class="need_qoute">
+        {{ page.need_quote }}
+    </div>
+    <div class="container">
+        <div class="navbar-header">
+            <div class="logo_img" >
+                {{ page.header }}
+            </div>
+            {# .btn-navbar is used as the toggle for collapsed navbar content #}
+            {% if page.header_menu %}
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">{{ 'Toggle navigation'|t }}</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            {% endif %}
+        </div>
+
+        {# Navigation (collapsible) #}
+        {% if page.header_menu %}
+            <div class="navbar-collapse collapse">
+                {{ page.header_menu }}
+            </div>
+        {% endif %}
+    </div>
+</header>
+
+<div class="container-fluid cont_title">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h1>Drupal Full-Service</h1>
+                <p class="fullservice_para">In hac habitasse platea dictumst. Vivamus adipiscing fermentum quam
+                    volutpat aliquam. Integer et elit eget elit facilisis tristique.</p>
+                <div class="getstarted">
+                    <a href = "#" class="get_started">GET STARTED</a>
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+                <img src="/themes/redcrackle/img/full_service.jpg" />
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="container-fluid nav-tabs-custom">
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#home">What's Include</a></li>
+        <li><a data-toggle="tab" href="#menu1">How it works</a></li>
+        <li><a data-toggle="tab" href="#menu2">Choose Plan</a></li>
+        <li><a data-toggle="tab" href="#menu3">FAQ</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div id="home" class="tab-pane fade in active">
+            <div class="container">
+            <h1>We’ve got you covered</h1>
+            <p>Starting at $149, our Drupal maintenance plans take care of every part of the development process.</p>
+            <div class="row">
+                <div class="col-sm-6 col-md-3">
+                    <div class="cust-image">
+
+                        <img src="/themes/redcrackle/img/drupal_repair.png" alt="Drupal Repairs & Jobs">
+
+                        <div class="caption">
+                            <h3>Drupal Repairs & Jobs</h3>
+                            <p>Curabitur lobortis id lorem id bibendum. Ut id consectetur magna. Quisque volutpat augue enim, pulvinar lobortis nibh lacinia at.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="cust-image">
+
+                        <img src="/themes/redcrackle/img/calendar.png" alt="We Are Here For You 24/7">
+
+                        <div class="caption">
+                            <h3>We Are Here For You 24/7</h3>
+                            <p>Curabitur lobortis id lorem id bibendum. Ut id consectetur magna. Quisque volutpat augue enim, pulvinar lobortis nibh lacinia at.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="cust-image">
+
+                        <img src="/themes/redcrackle/img/piggy.png" alt="Save Time & Money">
+
+                        <div class="caption">
+                            <h3>Save Time & Money</h3>
+                            <p>Curabitur lobortis id lorem id bibendum. Ut id consectetur magna. Quisque volutpat augue enim, pulvinar lobortis nibh lacinia at.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="cust-image">
+
+                        <img src="/themes/redcrackle/img/profession_support.png" alt="Professional Support">
+
+                        <div class="caption">
+                            <h3>Professional Support</h3>
+                            <p>Curabitur lobortis id lorem id bibendum. Ut id consectetur magna. Quisque volutpat augue enim, pulvinar lobortis nibh lacinia at.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class = "signup">
+                <a href="">Signup</a>
+                </div>
+        </div>
+        </div>
+        <div id="menu1" class="tab-pane fade">
+            <div class="container">
+            <h1>Couldn’t be easier</h1>
+            <div class="could_easier">
+            <img src = "/themes/redcrackle/img/steps_works.jpg" />
+                </div>
+                <p class="could_easier_para">Vestibulum rutrum quam vitae fringilla tincidunt. Suspendisse nec tortor urna. Ut laoreet sodales nisi, quis iaculis nulla iaculis vitae. Donec sagittis faucibus lacus eget blandit. Mauris vitae ultricies metus, at condimentum nulla. Donec quis ornare lacus.</p>
+        </div>
+            </div>
+        <div id="menu2" class="tab-pane fade">
+            <div class="container">
+           <h1>Choose a plan that works for you</h1>
+            <p>Our developers are available 24/7 to fix any small jobs, on the same day, from $149 /month.</p>
+                <div class = "col-md-12">
+                <div class="table-responsive">
+            <table class="table table-bordered">
+                <tbody>
+                <tr>
+                    <td>Standard<br />
+                    <p class="price">$149 USD/mo</p>
+                     <p>Minimum 3 months signup</p><br />
+                        <div class="plan_signup"><a href = "/stripe_payment?plan=std" >Sign Up</a></div>
+                    </td>
+                    <td>Professional<br /><p class="price">$249 USD/mo</p>
+                        <p>Minimum 3 months signup</p><br />
+                        <div class="plan_signup"><a href = "/stripe_payment?plan=prof">Sign Up</a></div>
+                    </td>
+                    <td>VIP<br /><p class="price">$349 USD/mo</p>
+                        <p>Minimum 3 months signup</p><br />
+                         <div class="plan_signup"><a href = "/stripe_payment?plan=vip">Sign Up</a></div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Unlimited small 30 min jobs for 1 site</p></td>
+                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Unlimited small 30 min jobs for 1 site</p></td>
+                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Unlimited small 30 min jobs for 1 site</p></td>
+
+                </tr>
+                <tr>
+                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Detailed notes for every job</p> </td>
+                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Detailed notes for every job</p> </td>
+                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Detailed notes for every job</p> </td>
+                </tr>
+
+                <tr>
+                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> 24 hour email support</p> </td>
+                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> 24 hour email support</p> </td>
+                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> 24 hour email support</p> </td>
+                </tr>
+
+                <tr>
+                    <td><p class="price_check"><i class="fa fa-times" aria-hidden="true"></i> Proactive WordPress upgrades</p> </td>
+                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Proactive WordPress upgrades</p> </td>
+                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Proactive WordPress upgrades</p> </td>
+                </tr>
+
+                <tr>
+                    <td><p class="price_check"><i class="fa fa-times" aria-hidden="true"></i> Secure offsite backup</p> </td>
+                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Secure offsite backup</p> </td>
+                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Secure offsite backup</p> </td>
+                </tr>
+
+                <tr>
+                    <td><p class="price_check"><i class="fa fa-times" aria-hidden="true"></i> Monthly security scan</p> </td>
+                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Monthly security scan</p> </td>
+                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Monthly security scan</p> </td>
+                </tr>
+
+                <tr>
+                    <td><p class="price_check"><i class="fa fa-times" aria-hidden="true"></i> Security guarantee</p> </td>
+                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Security guarantee</p> </td>
+                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Security guarantee</p> </td>
+                </tr>
+
+                <tr>
+                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Average task response time(24 hours (guarantee))</p> </td>
+                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Average task response time(24 hours (guarantee))</p> </td>
+                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Average task response time(12 hours (guarantee)</p> </td>
+                </tr>
+
+                <tr>
+                    <td><p class="price_check"><i class="fa fa-times" aria-hidden="true"></i> Jobs checked by QA team</p> </td>
+                    <td><p class="price_check"><i class="fa fa-times" aria-hidden="true"></i> Jobs checked by QA team</p> </td>
+                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Jobs checked by QA team</p> </td>
+                </tr>
+
+                <tr>
+                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Job request at a time(1 job at a time)</p> </td>
+                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Job request at a time(1 job at a time)</p> </td>
+                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Job request at a time(Up to 3 jobs at a time)</p> </td>
+                </tr>
+
+                </tbody>
+            </table>
+                    </div>
+                </div>
+        </div>
+        </div>
+        <div id="menu3" class="tab-pane fade">
+            <div class="container">
+            <h1>Questions and answers</h1>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class = "question">
+                            <h3>Will you support more than one site?</h3>
+                            <p>Our monthly support plans are just for the one website. You are welcome to sign up twice if you have two sites. </p>
+
+                        </div>
+
+                        <div class = "question">
+                            <h3>This sounds too good to be true… how can you provide unlimited support for monthly clients?</h3>
+                            <p>We’re fair and we’ve found our monthly clients are as well. We support a reasonable number of tasks per client and we will let you know if you’re stretching the friendship.</p>
+                        </div>
+
+                        <div class = "question">
+                            <h3>What does 24/7 support mean?</h3>
+                            <p>Most jobs are completed Monday to Friday, during business hours. We monitor incoming tasks over the weekend, so if there’s an urgent issue we can call in a WP Curve developer for extra help.</p>
+                        </div>
+
+                        <div class = "question">
+                            <h3>I’m thinking about signing up... when will you solve my problem?</h3>
+                            <p>The WP Curve team will start working on solving your problem on the same business day you sign up. We will check your details and activate your account first. Once that is done, you can submit your first job.</p>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class = "question">
+                            <h3>How long does a task take to complete?</h3>
+                            <p>We complete tasks on the same business day, most within 8 hours. If you request a task over the weekend, we generally take care of it on Monday morning unless we deem it to be urgent. </p>
+
+                        </div>
+
+                        <div class = "question">
+                            <h3>I'm not sure if my job is a small job, what do I do?</h3>
+                            <p>If it feels like a small job, just sign up and we will do our best to fix it for you. If we can't, we will give you a full refund. If you want to check before you signup, you are welcome to chat with us live below.</p>
+                        </div>
+
+                        <div class = "question">
+                            <h3>Are there limits to the tasks WP Curve will do?</h3>
+                            <p>To help make sure we can keep all of our customers happy, we only do small fixes and jobs. This means that 30 minute tasks are in scope and larger, more complex projects are out of scope.</p>
+                        </div>
+
+                        <div class = "question">
+                            <h3>I want to white label your service. Is this OK?</h3>
+                            <p>Sure. Contact us and we can discuss about it.</p>
+                        </div>
+
+                    </div>
+                </div>
+
+        </div>
+    </div>
+
+
+</div>
+</div>
+
+
+<div class="req_qoutes">
+    <div class="container">
+        {% if page.requuest_quotes %}
+            {{ page.requuest_quotes }}
+        {% endif %}
+    </div>
+
+</div>
+
+<div class="container-fluid footer_wrapper">
+    <div class="container">
+        <div class="footer">
+            <div class="col-md-3">
+                <h2>About Us</h2>
+                {% if page.about_us %}
+                    {{ page.about_us }}
+                {% endif %}
+            </div>
+            <div class="col-md-3">
+                <h2>From Our Blog</h2>
+                {% if page.from_blog %}
+                    {{ page.from_blog }}
+                {% endif %}
+            </div>
+            <div class="col-md-3">
+                <h2>Latest Tweets</h2>
+                {% if page.latest_tweets %}
+                    {{ page.latest_tweets }}
+                {% endif %}
+            </div>
+            <div class="col-md-3">
+                <h2>Get in Touch</h2>
+                {% if page.get_touch %}
+                    {{ page.get_touch }}
+                {% endif %}
+            </div>
+
+        </div>
+        <div class = "footer_bottom col-md-12">
+            ©2015 Red Crackle All Rights Reserved.
+        </div>
+    </div>
+</div>

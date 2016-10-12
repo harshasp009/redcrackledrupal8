@@ -1,0 +1,5 @@
+name: LESS CSS preprocessor
+description: Provides Preprocess support for LESS files.
+type: module
+core: 8.x
+version: VERSION

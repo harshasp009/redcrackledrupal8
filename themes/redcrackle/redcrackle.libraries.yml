@@ -1,0 +1,25 @@
+global-styling:
+  css:
+    theme:
+      css/style.css: {}
+      font-awesome/css/font-awesome.min.css: {}
+      hero/css/style.css: {}
+  js:
+     js/custom-script.js: {}
+     //load.sumome.com/: {type: external, attributes: { async: async, data-sumo-site-id: 2ebc5c4614c2439f10dd6d444b5fd6a3001ee7c81162844fbf4c19e2142be1ae } }
+  dependencies:
+        - core/jquery
+particle:
+  js:
+    hero/js/particles.js: {}
+    hero/js/app.js: {}
+    hero/js/lib/stats.js: {}
+  dependencies:
+      - core/jquery
+dropdown-submenu:
+  js:
+    js/dropdown-submenu.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+

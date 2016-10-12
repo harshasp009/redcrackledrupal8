@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function mauticintegration_theme() {
+//  $theme['automatic_form'] = [
+//    'template' => 'automatic-form',
+//    'variables' => ['base_url' => null, 'form_id' => null],
+//  ];
+//  return $theme;
+  return array(
+    'automatic_form' => array(
+      'variables' => array('base_url' => NULL, 'form_id' => null),
+    ),
+  );
+}

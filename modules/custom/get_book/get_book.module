@@ -1,0 +1,112 @@
+<?php
+
+/**
+ * @file
+ * Contains new_block.module.
+ */
+
+use Drupal\Core\Render\Markup;
+use Drupal\Core\Routing\RouteMatchInterface;
+use \Drupal\Component\Utility\SafeMarkup;
+use Drupal\Core\Url;
+/**
+ * Implements hook_help().
+ */
+function get_book_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the new_block module.
+    case 'help.page.get_book':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Get book is part of mautic integration form') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function get_book_theme() {
+  $theme = [
+    'my_block' => [
+      'render element'  => 'form'
+    ],
+    'default_form' => [
+      'render element'  => 'form'
+    ],
+  ];
+
+  return $theme;
+}
+/**
+ * Implements hook_mail().
+ */
+function get_book_mail($key, &$message, $params) {
+  $options = array(
+    'langcode' => $message['langcode'],
+  );
+
+  switch ($key) {
+    case 'get_book_key':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = t('Object-Oriented PHP eBook', $options);
+      $message['body'][] = $params['message'];
+      $message['body']['attachments'] = $params['attachment'];
+      break;
+    case 'attachment':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = t('Object-Oriented PHP eBook', $options);
+      $message['body'][] = $params['message'];
+      $message['files'][] = $params['files'];
+      break;
+    case 'test':
+      //$link = Link::fromTextAndUrl('Click Here for Download', $params['attachment']['filepath']);
+      //$link = Drupal::l('Click Here for Download', $params['attachment']['filepath']);
+
+      $message['headers']['Content-Type'] = 'text/html';
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = t('Object-Oriented PHP eBook', $options);
+      $text[] = '<p>' . t('Hi user') . '</p>';
+      $text[] = '<p>' . t('Thank you for downloading the eBook "Object-Oriented PHP For Drupal Developers". Please click the below link for download.').'</p>';
+      $text[] = '<p>' . '<a href ="'.$params['attachment']['filepath'].'">Click here for Download</a></p>';
+      $text[] = t('Kind regards') . '<br /><br />';
+      $text[] = t('Team Redcrackle');
+      $message['body'] =  array_map(function ($text) { return Markup::create($text); }, $text);
+      //$message['body']['attachments'] = $params['attachment']['filepath'];
+      break;
+  }
+
+//  function _send_email($email,$file_attachment) {
+//    $emails = $email;
+////    $mailManager = \Drupal::service('plugin.manager.mail');
+////
+////    $module = 'new_block';
+////    $key = 'get_book_key';
+////    $to = $email;
+////    $params['message'] = 'Thank you for downloading the eBook "Object-Oriented PHP For Drupal Developers". It is attached along with this email.';
+////    //$params['attachments'][] = $file_attachment;
+////    $langcode = \Drupal::currentUser()->getPreferredLangcode();
+////    $send = true;
+////    $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+////    if ($result['result'] !== true) {
+////      $message = t('There was a problem sending your email notification');
+////     // drupal_set_message($message, 'error');
+////      \Drupal::logger('new_block')->error($message);
+////    } else {
+////      $message = t('An email notification has been sent to @email.', array('@email' => $to));
+////      //drupal_set_message($message);
+////      \Drupal::logger('new_block')->error($message);
+////    }
+//
+//    return $emails;
+//  }
+}
+
+//function new_block_swiftmailer_attach($key) {
+//
+//  // Load file which is managed by Drupal.
+//  return file_load(25);
+//
+//}

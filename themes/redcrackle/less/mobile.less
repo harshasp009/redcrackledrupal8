@@ -1,0 +1,153 @@
+@import "variables.less";
+/**
+ * some css are made important because in bootstarp,
+ * mobile menu will show at width 768px below. To work for
+ * 992 px, important is used.
+**/
+@media screen and (max-width: @tablet) {
+  header.navbar {
+
+    .navbar-header {
+      float: none;
+    }
+    .navbar-toggle {
+      display: block;
+    }
+    .navbar-collapse {
+      border-top: 1px solid transparent;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+      float: none;
+      height: auto ;
+      border-bottom: none;
+    }
+    .navbar-fixed-top {
+      top: 0;
+      border-width: 0 0 1px;
+    }
+    .navbar-collapse.collapse {
+      display: none!important;
+    }
+    nav ul.nav {
+      float: none;
+      margin-top: 7.5px;
+      background: #fb1d00;
+      height: auto;
+    }
+
+    .navbar-nav>li>a {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      color: #ffffff;
+    }
+    .collapse.in{
+      display:block !important;
+    }
+    .navbar-default .navbar-collapse {
+      height: auto !important;
+      border-bottom: none !important;
+      float: none;
+    }
+    .container {
+      width: 100%;
+      /*padding: 0 !important;*/
+      margin: 0 auto;
+    }
+    nav ul.nav li {
+      height: auto;
+      font-family: Cabin;
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      color: #36413e;
+      float: none;
+    }
+    ul.navbar-nav li:nth-child(1) {
+      width: auto;
+    }
+    .navbar-nav>li>.dropdown-menu {
+      margin-top: 0 ;
+    }
+    nav ul.nav li ul.dropdown-menu li {
+      height: auto ;
+      width: auto ;
+    }
+
+    ul.navbar-nav li:nth-child(2) {
+      width: auto;
+    }
+    .navbar-nav>li>a {
+      line-height: 19px !important;
+    }
+    ul.navbar-nav li:nth-child(3) {
+      width: auto;
+    }
+    ul.navbar-nav li:nth-child(4) {
+      width: auto;
+    }
+    ul.navbar-nav li:nth-child(5) {
+      width: auto;
+    }
+    .navbar-nav .open .dropdown-menu {
+      position: static;
+      float: none;
+      width: auto;
+      margin-top: 0;
+      background-color: #36413e;
+      border: 0;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+    }
+
+    .nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+      background-color: #36413e;
+    }
+    ul.navbar-nav li ul li ul {
+      margin-left: 30px;
+    }
+    ul.navbar-nav li a:hover {
+      border-bottom: none;
+      color: #ffffff !important;
+    }
+    .tile .views-col {
+      padding: 45px 0 0 30px;
+    }
+    #block-getintouchs .soc-links {
+      height: 51px;
+    }
+  }
+}
+
+@media screen and (max-width: 402px) {
+  header.navbar  {
+    div.need_qoute {
+      height: 80px;
+
+       div.need_quotes {
+        float: none;
+       }
+       div.region_quote {
+         float: none;
+         margin-top: 0;
+         margin-right: 0;
+         padding-top: 15px;
+       }
+      div.soc-links {
+        margin-top: 14px;
+        padding-left: 110px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: @mobile) {
+  .navbar-default .navbar-nav .open .dropdown-menu>li>a {
+    color: #ffffff !important;
+ }
+}
+@media screen and (min-width: 993px) {
+  header.navbar ul li ul li ul {
+    left: 300px;
+    top: -30%;
+  }
+
+}

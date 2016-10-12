@@ -1,0 +1,123 @@
+@import 'variables.less';
+
+
+header.navbar {
+  background-color: #ffffff;
+  border:none;
+  div.need_qoute {
+    height: 40px;
+    background-color: @quote_color;
+    margin-bottom: 45px;
+    color: @text_color;
+    font-family: @font-family-opensans;
+    font-size: 16px;
+    font-weight: 400;
+    div.need_quotes {
+      float: right;
+    }
+    div.region_quote {
+      float: left;
+      margin-top: 12px;
+      margin-right: 18px;
+    }
+    div.soc-links {
+      float: left;
+      margin-top: 10px;
+    }
+    p {
+      text-align: center;
+    }
+
+  }
+  .logo_img img {
+    width: 308px;
+    height: auto;
+  }
+  .navbar-collapse {
+    float: right;
+    border-color: transparent;
+  }
+  nav ul.nav li {
+    font-family: @font-family-cabin;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: @footer_color;
+    height: 55px;
+  }
+  nav ul.nav {
+    height: 55px;
+    border-bottom: 1px solid @border_color;
+  }
+  .caret {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top: 4px dashed;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+  }
+  nav ul.nav li ul {
+    background: @navbar_hover_color;
+  }
+  nav ul.nav li ul li ul {
+    background: @footer_color;
+  }
+  nav ul.nav li ul li, nav ul.nav li ul li ul li {
+    width: 300px;
+    height: 30px;
+  }
+  nav ul.nav li ul li a, nav ul.nav li ul li ul li a {
+    color: @text_color;
+    line-height: 19px;
+  }
+  nav ul.nav li.open a:focus, nav ul.nav li.open a:hover {
+    color: @menu_hover_color;
+    background-color: transparent;
+  }
+  ul.nav li:hover {
+    border-bottom: 5px solid #fb1d00;
+  }
+  ul.navbar-nav li.open:hover {
+    border: none;
+  }
+  ul.navbar-nav li ul li ul li:hover {
+    border: none;
+  }
+
+
+}
+
+div.soc-links ul {
+  list-style: none;
+  font-size: 20px;
+  li {
+    float: left;
+    padding-right: 10px;
+    a {
+      color: @text_color;
+    }
+  }
+}
+
+span.para_color {
+  color: #e5e503;
+}
+/*css is used to override the default bootstarp css */
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+  background-color: transparent !important;
+}
+.dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover {
+  background-color: transparent !important;
+}
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+  background-color: transparent !important;
+}
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+  background-color: transparent !important;
+}
+
+

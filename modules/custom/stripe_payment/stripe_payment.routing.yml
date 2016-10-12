@@ -1,0 +1,15 @@
+stripe_payment.settings:
+  path: '/admin/config/development/stripe_payment/settings'
+  defaults:
+    _form: '\Drupal\stripe_payment\Form\stripePaymentSettingForm'
+    _title: 'Stripe Payment '
+  requirements:
+    _permission: 'administer stripe payment configuration'
+
+stripe_payment.form:
+  path: '/stripe_payment'
+  defaults:
+    _title: 'Checkout form'
+    _form: '\Drupal\stripe_payment\Form\stripePaymentForm'
+  requirements:
+    _permission: 'access content'

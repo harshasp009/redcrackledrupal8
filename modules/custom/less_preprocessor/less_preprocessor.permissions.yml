@@ -1,0 +1,4 @@
+LESS_PREPROCESSOR_PERMISSION:
+  title: 'Administer LESS'
+  description: 'Access the LESS preprocessor settings page.'
+  restrict access: FALSE

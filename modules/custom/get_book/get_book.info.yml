@@ -1,0 +1,7 @@
+name: Get Book
+type: module
+description: it is part of a mautic form
+core: 8.x
+package: custom
+dependencies:
+  - block
