@@ -5,9 +5,7 @@ namespace Drupal\stripe_payment\Form;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Component\Utility\UrlHelper;
-//use \Stripe\stripe;
-//use \Stripe\Charge;
-//use \Stripe\Customer;
+use \Drupal\node\Entity\Node;
 class stripePaymentForm extends FormBase {
 
   /**
@@ -133,6 +131,9 @@ class stripePaymentForm extends FormBase {
       '#type' => 'submit',
       '#value' => $this->t('Pay'),
       '#button_type' => 'primary',
+      '#attributes' => array(
+        'class' => 'submit',
+      ),
     );
 
 
@@ -153,29 +154,67 @@ class stripePaymentForm extends FormBase {
     $exp_year = $form_state->getValue('exp_year');
     $stripeToken = $form_state->getValue('stripeToken');
     $pay_plan = $form_state->getValue('pay_plan');
-
-
+    if($pay_plan == 'std') {
+      $plan = "standard";
+    } elseif($pay_plan == 'prof'){
+      $plan = "professional";
+    } elseif($pay_plan == 'vip'){
+      $plan = "vip";
+    }
     $stripe_api_key = \Drupal::config('stripe_payment.settings')->get('stripe_api_key');
     $stripe_publish_key = \Drupal::config('stripe_publish_key.settings')->get('stripe_publish_key');
     define('SECRET_KEY', $stripe_api_key );
     define('PUBLISHABLE_KEY', $stripe_publish_key );
-//    Stripe::setApiKey('sk_test_n3rFohTOjpOWQC87JErk4pjB');
-//    $customer = Customer::create(array(
-//        "source" => $stripeToken,
-//        'email' => $e_mail,
-//        'plan' => $pay_plan,
-//        "description" => "Example customer")
-//    );
-//    try {
-//      $charge = Charge::create(array(
-//        "amount" => 1000, // Amount in cents
-//        "currency" => "usd",
-//        "source" => $stripeToken,
-//        "description" => "Example charge"
-//      ));
-//    } catch(\Stripe\Error\Card $e) {
-//      // The card has been declined
-//    }
+    $vendor_path =  drupal_get_path('module','stripe_payment')."/vendor/autoload.php";
+    require_once($vendor_path);
+    $current_date = date('Y-m-d');
+    $effectiveDate = date('Y-m-d', strtotime("+3 months", strtotime($current_date)));
+    $trial_date = strtotime($effectiveDate);
+    try {
+      \Stripe\Stripe::setApiKey('sk_test_FGKO5Gth3N8GvqoAR7rSCq8a');
+      $customer = \Stripe\Customer::create(array(
+          "source" => $stripeToken,
+          'email' => $e_mail,
+          'plan' => $plan,
+          "description" => "new customer",
+        )
+      );
+      $node = Node::create([
+        'type'        => 'customer_details',
+        'title'       => $full_name,
+        'field_email_id' => $e_mail,
+        'field_company' => $company,
+        'field_phone_number' => $phone_numeber,
+        'field_plan' => $plan,
+        'field_sign_up_date' => $current_date,
+      ]);
+      $node->save();
+      $responses = $this->_send_mails($e_mail, $full_name,$plan);
+      if($responses['send']) {
+        drupal_set_message('Thank You for signing up. we will contact you.');
+      } else {
+        drupal_set_message('Please contact administrator for details');
+      }
+    }
+    catch (Exception $e) {
+      //form_set_error('', $e->getMessage());
+      $form_state->setRebuild();
+      return;
+    }
 
+  }
+
+  public function _send_mails($e_mail, $full_name,$plan) {
+    $key = 'stripe_mail';
+    $to = $e_mail;
+    $text = "<p>Hi ".$full_name.",</p>";
+    $text .= "<p>Thank You for signup for the plan ".$plan.". We will contact you as soon as possible.</p>";
+    $text .= "<p><strong>Thank You,</strong><br />";
+    $text .= "Team Redcrackle</p>";
+    $params['message'] = $text ;
+    $langcode = \Drupal::currentUser()->getPreferredLangcode();
+    $send = true;
+    $result = \Drupal::service('plugin.manager.mail')->mail('stripe_payment', $key, $to, $langcode, $params, NULL, $send);
+    return $result;
   }
 }
