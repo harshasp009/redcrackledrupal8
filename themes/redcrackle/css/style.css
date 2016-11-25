@@ -207,6 +207,7 @@ span.para_color {
     border: 0;
     -webkit-box-shadow: none;
     box-shadow: none;
+    display: block;
   }
   header.navbar .nav .open>a,
   header.navbar .nav .open>a:focus,
@@ -225,6 +226,9 @@ span.para_color {
   }
   header.navbar #block-getintouchs .soc-links {
     height: 51px;
+  }
+  header.navbar nav ul.nav li ul li.open ul.dropdown-menu {
+    display: block !important;
   }
 }
 @media screen and (max-width: 402px) {
@@ -386,12 +390,14 @@ div.banner .banner-link {
   border-right: 1px solid #e8eef2;
   border-left: 1px solid #e8eef2;
 }
-.recent_proj .views-field-title h4 {
+.recent_proj .views-field-title  a {
   font-family: Cabin;
   font-size: 20px;
   font-weight: 500;
   letter-spacing: 1px;
   color: #36413e;
+}
+.recent_proj .views-field-title h4 {
   padding: 30px 0 0 0;
 }
 .recent_proj .views-col {
@@ -405,9 +411,10 @@ div.banner .banner-link {
 }
 .recent_proj .views-field-body p {
   font-family: OpenSans;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   color: #717c89;
+  line-height: 25px;
 }
 .recent_proj .views-field-nothing {
   height: 70px;
@@ -623,6 +630,7 @@ p.looking_forward {
   color: #717c89;
   margin-top: 60px;
   margin-bottom: 60px;
+  line-height: 25px;
 }
 .protfolio .protfolio_about h2 {
   font-family: Cabin;
@@ -650,12 +658,13 @@ p.looking_forward {
 .protfolio .protfolio_background img {
   border: 1px solid #a3b6b4;
 }
-.protfolio .protfolio_background .field--name-field-needed {
+.protfolio .protfolio_background .field--name-field-need p {
   font-family: OpenSans;
   font-size: 16px;
   font-weight: 400;
   color: #717c89;
   margin-bottom: 20px;
+  line-height: 25px;
 }
 .protfolio .Protfolio_solution h2 {
   height: 33px;
@@ -673,12 +682,22 @@ p.looking_forward {
   font-weight: 400;
   color: #717c89;
   padding-bottom: 25px;
-  line-height: 20px;
+  line-height: 25px;
 }
 .protfolio .Protfolio_result {
   background-color: #f5f5f5;
   min-height: 180px;
   padding-top: 35px;
+  padding-bottom: 35px;
+}
+.protfolio .Protfolio_result div.field--name-field-testimonials {
+  font-family: OpenSans;
+  font-size: 18px;
+  font-weight: bold;
+  font-style: italic;
+  font-stretch: normal;
+  color: #717c89;
+  line-height: 25px;
 }
 .protfolio .Protfolio_result h2 {
   height: 33px;
@@ -695,6 +714,7 @@ p.looking_forward {
   font-size: 16px;
   font-weight: 400;
   color: #717c89;
+  line-height: 25px;
 }
 .protfolio .more_case_studies {
   text-align: center;
@@ -726,18 +746,22 @@ p.looking_forward {
   padding-top: 32px;
 }
 .protcontent h3 {
+  padding-bottom: 20px;
+}
+.protcontent h3 a {
   font-family: Cabin;
   font-size: 18px;
   font-weight: 800;
   letter-spacing: 1px;
   color: #36413e;
-  padding-bottom: 20px;
   text-transform: capitalize;
+  text-decoration: none;
 }
 .protcontent p {
   font-family: OpenSans;
   font-size: 16px;
   color: #717c89;
+  line-height: 25px;
 }
 .protcontent .morelinkprot {
   margin-top: 35px;
@@ -811,11 +835,6 @@ p.looking_forward {
   font-weight: 300;
   color: #ffffff;
 }
-.page-node-type-page .field--name-body {
-  font-family: OpenSans;
-  font-size: 16px;
-  color: #717c89;
-}
 .page-node-type-page .field--name-body h2 {
   font-family: Cabin;
   font-size: 30px;
@@ -838,16 +857,26 @@ p.looking_forward {
 }
 .page-node-type-page .field--name-body p {
   font-family: OpenSans;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
   color: #717c89;
   padding-bottom: 15px;
+  line-height: 25px;
 }
 .page-node-type-page .field--name-body li {
   padding-bottom: 20px;
   list-style: initial;
+  font-family: OpenSans;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  color: #717c89;
+}
+.page-node-type-page .field--name-body ul {
+  padding-left: 30px;
 }
 .region-content {
   padding-bottom: 50px;
@@ -893,6 +922,12 @@ div.blog_body {
   color: #717c89;
   line-height: 25px;
 }
+div.blog_body ol {
+  padding-left: 20px;
+}
+div.blog_body ol li {
+  list-style: decimal;
+}
 div.comment_blog {
   margin-top: 50px;
   margin-bottom: 30px;
@@ -909,8 +944,8 @@ div.comment_blog h3 {
   padding-top: 10px;
   text-transform: capitalize;
 }
-div.view-blogs h2,
-div.view-topic-view h2 {
+div.view-blogs h2 a,
+div.view-topic-view h2 a {
   font-family: Cabin;
   font-size: 30px;
   font-weight: bold;
@@ -918,6 +953,7 @@ div.view-topic-view h2 {
   font-stretch: normal;
   letter-spacing: 1.5px;
   color: #36413e;
+  text-decoration: none;
 }
 div.view-blogs .author_details_view,
 div.view-topic-view .author_details_view {
@@ -1112,6 +1148,7 @@ section#block-views-block-related-posts-block-3 h1 {
   font-stretch: normal;
   letter-spacing: 1.3px;
   color: #36413e;
+  line-height: 25px;
 }
 #block-relatedblogpost p,
 section#block-views-block-related-posts-block-1 p,
@@ -1123,6 +1160,7 @@ section#block-views-block-related-posts-block-3 p {
   font-style: normal;
   font-stretch: normal;
   color: #717c89;
+  line-height: 25px;
 }
 #block-relatedblogpost a,
 section#block-views-block-related-posts-block-1 a,
@@ -1316,10 +1354,10 @@ div.nav-tabs-custom ul li {
 div.nav-tabs-custom ul li a {
   border-radius: 0;
   border: none !important;
-  color: #717c89 !important;
+  color: #717c89;
 }
 div.nav-tabs-custom ul li.active > a {
-  color: #fb1d00;
+  color: #fb1d00 !important;
 }
 div.nav-tabs-custom ul li:first-child,
 div.nav-tabs-custom ul li:last-child {
@@ -1452,7 +1490,7 @@ div.nav-tabs-custom div#menu3 div.question {
   min-height: 80px;
 }
 div.nav-tabs-custom div#menu3 div.question h3 {
-  font-size: 14px;
+  font-size: 20px;
   font-weight: 600;
   font-style: normal;
   font-stretch: normal;
@@ -1462,7 +1500,7 @@ div.nav-tabs-custom div#menu3 div.question h3 {
 }
 div.nav-tabs-custom div#menu3 div.question p {
   font-family: OpenSans;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 300;
   font-style: normal;
   font-stretch: normal;
@@ -1519,6 +1557,34 @@ form#stripe-payment #edit-actions .btn {
   padding: 6px 55px;
   background-color: #36413e;
   border-color: #36413e;
+}
+div.view-blogs .pagination>.active>a,
+div.view-blogs .pagination>.active>a:focus,
+div.view-blogs .pagination>.active>a:hover,
+div.view-blogs .pagination>.active>span,
+div.view-blogs .pagination>.active>span:focus,
+div.view-blogs .pagination>.active>span:hover,
+div.view-topic-view .pagination>.active>a,
+div.view-topic-view .pagination>.active>a:focus,
+div.view-topic-view .pagination>.active>a:hover,
+div.view-topic-view .pagination>.active>span,
+div.view-topic-view .pagination>.active>span:focus,
+div.view-topic-view .pagination>.active>span:hover,
+div.view-recent-project .pagination>.active>a,
+div.view-recent-project .pagination>.active>a:focus,
+div.view-recent-project .pagination>.active>a:hover,
+div.view-recent-project .pagination>.active>span,
+div.view-recent-project .pagination>.active>span:focus,
+div.view-recent-project .pagination>.active>span:hover {
+  color: #36413e;
+  background-color: #e8eef2;
+  border-color: #36413e;
+}
+div.view-blogs .pagination>li>a,
+div.view-topic-view .pagination>li>a,
+div.view-recent-project .pagination>li>a {
+  color: #717c89;
+  border: 1px solid #ddd;
 }
 div.footer_wrapper {
   background-color: #36413e;

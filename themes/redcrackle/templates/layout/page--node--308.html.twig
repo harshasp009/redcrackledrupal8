@@ -56,7 +56,7 @@ theme.settings.navbar_position ? 'navbar-' ~ theme.settings.navbar_position|clea
 </div>
 <div class="container-fluid nav-tabs-custom">
     <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#home">What's Include</a></li>
+        <li class="active"><a data-toggle="tab" href="#home">What's Included</a></li>
         <li><a data-toggle="tab" href="#menu1">How it works</a></li>
         <li><a data-toggle="tab" href="#menu2">Choose Plan</a></li>
         <li><a data-toggle="tab" href="#menu3">FAQ</a></li>
@@ -131,90 +131,137 @@ theme.settings.navbar_position ? 'navbar-' ~ theme.settings.navbar_position|clea
             <div class="container">
            <h1>Choose a plan that works for you</h1>
             <p>Our developers are available 24/7 to fix any small jobs, on the same day, from $149 /month.</p>
-                <div class = "col-md-12">
-                <div class="table-responsive">
-            <table class="table table-bordered">
-                <tbody>
-                <tr>
-                    <td>Standard<br />
-                    <p class="price">$149 USD/mo</p>
-                     <p>Minimum 3 months signup</p><br />
-                        <div class="plan_signup"><a href = "/stripe_payment?plan=std" >Sign Up</a></div>
-                    </td>
-                    <td>Professional<br /><p class="price">$249 USD/mo</p>
-                        <p>Minimum 3 months signup</p><br />
-                        <div class="plan_signup"><a href = "/stripe_payment?plan=prof">Sign Up</a></div>
-                    </td>
-                    <td>VIP<br /><p class="price">$349 USD/mo</p>
-                        <p>Minimum 3 months signup</p><br />
-                         <div class="plan_signup"><a href = "/stripe_payment?plan=vip">Sign Up</a></div>
-                    </td>
-                </tr>
+               <div class="row">
+                   <div class = "col-md-4">
+                       <table class="table table-bordered">
+                           <tbody>
+                           <tr>
+                               <td>Standard<br />
+                                   <p class="price">$149 USD/mo</p>
+                                   <p>Minimum 3 months signup</p><br />
+                                   <div class="plan_signup"><a href = "/stripe_payment?plan=std" >Sign Up</a></div>
+                               </td>
+                           </tr>
+                           <tr>
+                               <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Unlimited small 30 min jobs for 1 site</p></td>
+                           </tr>
+                           <tr>
+                               <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Detailed notes for every job</p> </td>
+                           </tr>
+                           <tr>
+                               <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> 24 hour email support</p> </td>
+                           </tr>
+                           <tr>
+                               <td><p class="price_check"><i class="fa fa-times" aria-hidden="true"></i> Proactive WordPress upgrades</p> </td>
+                           </tr>
+                           <tr>
+                               <td><p class="price_check"><i class="fa fa-times" aria-hidden="true"></i> Secure offsite backup</p> </td>
+                           </tr>
+                           <tr>
+                               <td><p class="price_check"><i class="fa fa-times" aria-hidden="true"></i> Monthly security scan</p> </td>
+                           </tr>
+                           <tr>
+                               <td><p class="price_check"><i class="fa fa-times" aria-hidden="true"></i> Security guarantee</p> </td>
+                           </tr>
+                           <tr>
+                               <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Average task response time(24 hours (guarantee))</p> </td>
+                           </tr>
+                           <tr>
+                               <td><p class="price_check"><i class="fa fa-times" aria-hidden="true"></i> Jobs checked by QA team</p> </td>
+                           </tr>
+                           <tr>
+                               <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Job request at a time(1 job at a time)</p> </td>
+                           </tr>
+                           </tbody>
+                       </table>
+                   </div>
 
-                <tr>
-                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Unlimited small 30 min jobs for 1 site</p></td>
-                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Unlimited small 30 min jobs for 1 site</p></td>
-                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Unlimited small 30 min jobs for 1 site</p></td>
+                   <div class = "col-md-4">
+                       <table class="table table-bordered">
+                           <tbody>
+                           <tr>
+                               <td>Professional<br /><p class="price">$249 USD/mo</p>
+                                   <p>Minimum 3 months signup</p><br />
+                                   <div class="plan_signup"><a href = "/stripe_payment?plan=prof">Sign Up</a></div>
+                               </td>
+                           </tr>
+                           <tr>
+                               <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Unlimited small 30 min jobs for 1 site</p></td>
+                           </tr>
+                           <tr>
+                               <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Detailed notes for every job</p> </td>
+                           </tr>
+                           <tr>
+                               <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> 24 hour email support</p> </td>
+                           </tr>
+                           <tr>
+                               <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Proactive WordPress upgrades</p> </td>
+                           </tr>
+                           <tr>
+                               <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Secure offsite backup</p> </td>
+                           </tr>
+                           <tr>
+                               <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Monthly security scan</p> </td>
+                           </tr>
+                           <tr>
+                               <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Security guarantee</p> </td>
+                           </tr>
+                           <tr>
+                               <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Average task response time(24 hours (guarantee))</p> </td>
+                           </tr>
+                           <tr>
+                               <td><p class="price_check"><i class="fa fa-times" aria-hidden="true"></i> Jobs checked by QA team</p> </td>
+                           </tr>
+                           <tr>
+                               <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Job request at a time(1 job at a time)</p> </td>
+                           </tr>
+                           </tbody>
+                       </table>
+                   </div>
 
-                </tr>
-                <tr>
-                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Detailed notes for every job</p> </td>
-                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Detailed notes for every job</p> </td>
-                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Detailed notes for every job</p> </td>
-                </tr>
-
-                <tr>
-                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> 24 hour email support</p> </td>
-                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> 24 hour email support</p> </td>
-                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> 24 hour email support</p> </td>
-                </tr>
-
-                <tr>
-                    <td><p class="price_check"><i class="fa fa-times" aria-hidden="true"></i> Proactive WordPress upgrades</p> </td>
-                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Proactive WordPress upgrades</p> </td>
-                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Proactive WordPress upgrades</p> </td>
-                </tr>
-
-                <tr>
-                    <td><p class="price_check"><i class="fa fa-times" aria-hidden="true"></i> Secure offsite backup</p> </td>
-                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Secure offsite backup</p> </td>
-                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Secure offsite backup</p> </td>
-                </tr>
-
-                <tr>
-                    <td><p class="price_check"><i class="fa fa-times" aria-hidden="true"></i> Monthly security scan</p> </td>
-                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Monthly security scan</p> </td>
-                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Monthly security scan</p> </td>
-                </tr>
-
-                <tr>
-                    <td><p class="price_check"><i class="fa fa-times" aria-hidden="true"></i> Security guarantee</p> </td>
-                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Security guarantee</p> </td>
-                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Security guarantee</p> </td>
-                </tr>
-
-                <tr>
-                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Average task response time(24 hours (guarantee))</p> </td>
-                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Average task response time(24 hours (guarantee))</p> </td>
-                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Average task response time(12 hours (guarantee)</p> </td>
-                </tr>
-
-                <tr>
-                    <td><p class="price_check"><i class="fa fa-times" aria-hidden="true"></i> Jobs checked by QA team</p> </td>
-                    <td><p class="price_check"><i class="fa fa-times" aria-hidden="true"></i> Jobs checked by QA team</p> </td>
-                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Jobs checked by QA team</p> </td>
-                </tr>
-
-                <tr>
-                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Job request at a time(1 job at a time)</p> </td>
-                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Job request at a time(1 job at a time)</p> </td>
-                    <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Job request at a time(Up to 3 jobs at a time)</p> </td>
-                </tr>
-
-                </tbody>
-            </table>
-                    </div>
-                </div>
+                   <div class = "col-md-4">
+                       <table class="table table-bordered">
+                           <tbody>
+                           <tr>
+                               <td>VIP<br /><p class="price">$349 USD/mo</p>
+                                   <p>Minimum 3 months signup</p><br />
+                                   <div class="plan_signup"><a href = "/stripe_payment?plan=vip">Sign Up</a></div>
+                               </td>
+                           </tr>
+                           <tr>
+                               <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Unlimited small 30 min jobs for 1 site</p></td>
+                           </tr>
+                           <tr>
+                               <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Detailed notes for every job</p> </td>
+                           </tr>
+                           <tr>
+                               <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> 24 hour email support</p> </td>
+                           </tr>
+                           <tr>
+                               <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Proactive WordPress upgrades</p> </td>
+                           </tr>
+                           <tr>
+                               <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Secure offsite backup</p> </td>
+                           </tr>
+                           <tr>
+                               <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Monthly security scan</p> </td>
+                           </tr>
+                           <tr>
+                               <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Security guarantee</p> </td>
+                           </tr>
+                           <tr>
+                               <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Average task response time(12 hours (guarantee)</p> </td>
+                           </tr>
+                           <tr>
+                               <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Jobs checked by QA team</p> </td>
+                           </tr>
+                           <tr>
+                               <td><p class="price_check"><i class="fa fa-check" aria-hidden="true"></i> Job request at a time(Up to 3 jobs at a time)</p> </td>
+                           </tr>
+                           </tbody>
+                       </table>
+                   </div>
+               </div>
         </div>
         </div>
         <div id="menu3" class="tab-pane fade">

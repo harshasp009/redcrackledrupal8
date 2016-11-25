@@ -59,7 +59,9 @@ theme.settings.navbar_position ? 'navbar-' ~ theme.settings.navbar_position|clea
     {% endif %}
     {% if page.related_post %}
     <div class="related_post">
+        <div class="col-md-12">
         {{ page.related_post }}
+         </div>
     </div>
     {% endif %}
 </div>

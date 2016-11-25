@@ -139,12 +139,15 @@ div.banner {
     border-left: 1px solid #e8eef2;
 
   }
-  .views-field-title h4 {
+  .views-field-title  a {
     font-family: Cabin;
     font-size: 20px;
     font-weight: 500;
     letter-spacing: 1px;
     color: #36413e;
+
+  }
+  .views-field-title h4 {
     padding: 30px 0 0 0;
   }
   .views-col {
@@ -158,9 +161,10 @@ div.banner {
   }
   .views-field-body p {
     font-family: OpenSans;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
     color: #717c89;
+    line-height: 25px;
   }
   .views-field-nothing {
     height: 70px;
@@ -406,6 +410,16 @@ p.looking_forward {
     color: #717c89;
     margin-top: 60px;
     margin-bottom: 60px;
+    line-height: 25px;
+
+    div.field--type-text-with-summary p {
+      //font-family: OpenSans;
+      //font-size: 20px;
+      //font-weight: normal;
+      //font-style: normal;
+      //font-stretch: normal;
+      //color: #717c89;
+    }
   }
   .protfolio_about h2 {
     font-family: Cabin;
@@ -433,12 +447,13 @@ p.looking_forward {
   .protfolio_background img {
     border: 1px solid #a3b6b4;
   }
-  .protfolio_background .field--name-field-needed {
+  .protfolio_background .field--name-field-need p {
     font-family: OpenSans;
     font-size: 16px;
     font-weight: 400;
     color: #717c89;
     margin-bottom: 20px;
+    line-height: 25px;
   }
   .Protfolio_solution h2 {
     height: 33px;
@@ -456,12 +471,23 @@ p.looking_forward {
     font-weight: 400;
     color: #717c89;
     padding-bottom: 25px;
-    line-height: 20px;
+    line-height: 25px;
   }
   .Protfolio_result {
     background-color: #f5f5f5;
     min-height: 180px;
     padding-top: 35px;
+    padding-bottom: 35px;
+
+    div.field--name-field-testimonials {
+      font-family: OpenSans;
+      font-size: 18px;
+      font-weight: bold;
+      font-style: italic;
+      font-stretch: normal;
+      color: #717c89;
+      line-height: 25px;
+    }
   }
   .Protfolio_result h2 {
     height: 33px;
@@ -478,6 +504,7 @@ p.looking_forward {
     font-size: 16px;
     font-weight: 400;
     color: #717c89;
+    line-height: 25px;
   }
   .more_case_studies {
     text-align: center;
@@ -512,18 +539,22 @@ p.looking_forward {
 }
 .protcontent {
   h3 {
+    padding-bottom: 20px;
+  }
+  h3 a {
     font-family: Cabin;
     font-size: 18px;
     font-weight: 800;
     letter-spacing: 1px;
     color: #36413e;
-    padding-bottom: 20px;
     text-transform: capitalize;
+    text-decoration: none;
   }
   p {
     font-family: OpenSans;
     font-size: 16px;
     color: #717c89;
+    line-height: 25px;
   }
   .morelinkprot {
     margin-top: 35px;
@@ -601,11 +632,6 @@ p.looking_forward {
   }
 }
 
-.page-node-type-page .field--name-body {
-  font-family: OpenSans;
-  font-size: 16px;
-  color: #717c89;
-}
 .page-node-type-page .field--name-body h2 {
   font-family: Cabin;
   font-size: 30px;
@@ -628,16 +654,27 @@ p.looking_forward {
 }
 .page-node-type-page .field--name-body p {
   font-family: OpenSans;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
   color: #717c89;
   padding-bottom:15px;
+  line-height: 25px;
 }
 .page-node-type-page .field--name-body li {
   padding-bottom: 20px;
   list-style: initial;
+  font-family: OpenSans;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  color: #717c89;
+
+}
+.page-node-type-page .field--name-body ul {
+  padding-left: 30px;
 }
 
 .region-content {
@@ -687,6 +724,13 @@ div.blog_body {
   font-stretch: normal;
   color: #717c89;
   line-height: 25px;
+
+  ol {
+    padding-left: 20px;
+  }
+  ol li {
+    list-style: decimal;
+  }
 }
 div.comment_blog {
   margin-top: 50px;
@@ -710,7 +754,7 @@ div.comment_blog {
 //css for View Blog
 
 div.view-blogs, div.view-topic-view {
-  h2 {
+  h2 a {
     font-family: Cabin;
     font-size: 30px;
     font-weight: bold;
@@ -718,6 +762,7 @@ div.view-blogs, div.view-topic-view {
     font-stretch: normal;
     letter-spacing: 1.5px;
     color: #36413e;
+    text-decoration: none;
   }
   .author_details_view {
     margin-top: 10px;
@@ -918,6 +963,7 @@ section#block-testform {
      font-stretch: normal;
      letter-spacing: 1.3px;
      color: #36413e;
+     line-height: 25px;
    }
    p{
      font-family: OpenSans;
@@ -926,6 +972,7 @@ section#block-testform {
      font-style: normal;
      font-stretch: normal;
      color: #717c89;
+     line-height: 25px;
    }
    a {
      font-family: Cabin;
@@ -1129,10 +1176,10 @@ div.nav-tabs-custom {
   ul li a {
     border-radius: 0;
     border: none !important;
-    color: #717c89 !important;
+    color: #717c89;
   }
   ul li.active > a {
-    color: #fb1d00;
+    color: #fb1d00 !important;
   }
   ul li:first-child, ul li:last-child {
     border-left: none;
@@ -1273,7 +1320,7 @@ div.nav-tabs-custom {
     div.question {
       min-height: 80px;
       h3 {
-        font-size: 14px;
+        font-size: 20px;
         font-weight: 600;
         font-style: normal;
         font-stretch: normal;
@@ -1283,7 +1330,7 @@ div.nav-tabs-custom {
       }
       p {
         font-family: OpenSans;
-        font-size: 14px;
+        font-size: 16px;
         font-weight: 300;
         font-style: normal;
         font-stretch: normal;
@@ -1350,3 +1397,17 @@ form#stripe-payment {
   }
 
 }
+//Pagination css
+div.view-blogs,div.view-topic-view, div.view-recent-project {
+  .pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    color: #36413e ;
+    background-color: #e8eef2;
+    border-color: #36413e;
+  }
+  .pagination>li>a {
+    color: #717c89;
+    border: 1px solid #ddd;
+  }
+}
+
+

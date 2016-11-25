@@ -1,37 +1,68 @@
 <div class = "protfolio">
-<div class="row protfoliotile">
-    <div class = "protfolio_title col-md-6">
-        <span>Case Study</span>
-        <h2>{{ node.title.value }}</h2>
+<div class="protfoliotile">
+    <div class="container">
+        <div class="row">
+            <div class = "protfolio_title col-md-6">
+                <span>Case Study</span>
+                <h2>{{ node.title.value }}</h2>
+            </div>
+            <div class = "protfolio_title_image col-md-6">
+                {{ content.field_portfolio_image }}
+            </div>
+        </div>
     </div>
-    <div class = "protfolio_title_image col-md-6">
-        {{ content.field_portfolio_logo_image }}
-    </div>
+
 </div>
 
 <div class = "protfolio_about">
-    {{ content.body }}
-</div>
-<div class = "protfolio_main row">
-    <div class="protfolio_background col-md-3">
-        {{ content.field_image }}
-    </div>
-    <div class="protfolio_background col-md-9">
-        <h2>BACKGROUND & GOALS</h2>
-        {{ content.field_need }}
+    <div class="container">
+        <div class="col-md-12">
+            {{ content.body }}
+        </div>
     </div>
 </div>
-<div class="Protfolio_solution col-md-12">
-    <h2>SOLUTION</h2>
-    {{ content.field_solution }}
+<div class = "protfolio_main">
+    <div class="container">
+        <div class="row">
+            <div class="protfolio_background col-md-3">
+                {{ content.field_image }}
+            </div>
+            <div class="protfolio_background col-md-9">
+                <h2>BACKGROUND & GOALS</h2>
+                {{ content.field_need }}
+            </div>
+            </div>
+        </div>
+</div>
+<div class="Protfolio_solution">
+    <div class="container">
+        <div class="col-md-12">
+            <h2>SOLUTION</h2>
+            {{ content.field_solution }}
+        </div>
+    </div>
 </div>
 
-<div class="Protfolio_result col-md-12">
-    <h2>RESULTS</h2>
-    {{ content.field_outcome }}
+<div class="Protfolio_result">
+    <div class="container">
+        <h2>RESULTS</h2>
+        <div class="row">
+        <div class="col-md-6">
+            {{ content.field_outcome }}
+        </div>
+            <div class="col-md-6">
+                {{ content.field_testimonials }}
+            </div>
+        </div>
+    </div>
+
 </div>
 
-<div class="more_case_studies col-md-12">
+<div class="more_case_studies">
+    <div class="container">
+        <div class="col-md-12">
     <a href = "/recent-proj">More case Studies</a>
+            </div>
+  </div>
 </div>
 </div>

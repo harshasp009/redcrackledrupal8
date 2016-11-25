@@ -30,5 +30,26 @@
        }
      );
    }
+
+
+  //$(".nav li.expanded a span.caret").click(function() {
+  //    alert("clicked");
+  //})
+  // else if($(window).width() <= 992) {
+  //   $('.dropdown-toggle').click(function () {
+  //     var location = $(this).attr('href');
+  //     window.location.href = location;
+  //     return false;
+  //   });
+  //   $(".nav li.expanded a span.caret").click(
+  //     function () {
+  //       var obj = $(".nav li.expanded");
+  //       obj.addClass("open");
+  //     }, function () {
+  //       var obj = $(".nav li.expanded");
+  //     obj.removeClass("open");
+  //     }
+  //   );
+  // }
  })(jQuery);
 

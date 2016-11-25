@@ -14,7 +14,8 @@ function stripe_payment_mail($key, &$message, $params) {
     case 'stripe_mail':
       $message['headers']['Content-Type'] = 'text/html';
       $message['from'] = \Drupal::config('system.site')->get('mail');
-      $message['body'] =  $params['message'];
+      $message['subject'] = "Thank you for signing up";
+      $message['body'][] =  $params['message'];
       break;
   }
 }

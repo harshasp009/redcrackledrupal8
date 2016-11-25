@@ -1,0 +1,97 @@
+{%
+set navbar_classes = [
+'navbar',
+theme.settings.navbar_inverse ? 'navbar-inverse' : 'navbar-default',
+theme.settings.navbar_position ? 'navbar-' ~ theme.settings.navbar_position|clean_class : container,
+]
+%}
+<header{{ navbar_attributes.addClass(navbar_classes) }} id="navbar" role="banner">
+    {#<div class = "simple_news_block navbar-fixed-top">#}
+    {#{{ page.simple_news_block }} <span class = "close_news">X</span>#}
+    {#</div>#}
+    <div class="need_qoute">
+        {{ page.need_quote }}
+    </div>
+    <div class="container">
+        <div class="navbar-header">
+            <div class="logo_img" >
+                {{ page.header }}
+            </div>
+            {# .btn-navbar is used as the toggle for collapsed navbar content #}
+            {% if page.header_menu %}
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">{{ 'Toggle navigation'|t }}</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            {% endif %}
+        </div>
+
+        {# Navigation (collapsible) #}
+        {% if page.header_menu %}
+            <div class="navbar-collapse collapse">
+                {{ page.header_menu }}
+            </div>
+        {% endif %}
+    </div>
+</header>
+
+<div class="container-fluid cont_title">
+    <div class="container">
+        <div class="col-md-12">
+            {{ page.content_title }}
+        </div>
+    </div>
+</div>
+{#<div class="container-fluid">#}
+        <div class="case_study_cont">
+            {{ page.content }}
+        </div>
+{#</div>#}
+
+<div class="req_qoutes">
+    <div class="container">
+        {% if page.requuest_quotes %}
+            {{ page.requuest_quotes }}
+        {% endif %}
+    </div>
+
+</div>
+
+<div class="container-fluid footer_wrapper">
+    <div class="container">
+        <div class="footer">
+            <div class="col-md-3">
+                <h2>About Us</h2>
+                {% if page.about_us %}
+                    {{ page.about_us }}
+                {% endif %}
+            </div>
+            <div class="col-md-3">
+                <h2>From Our Blog</h2>
+                {% if page.from_blog %}
+                    {{ page.from_blog }}
+                {% endif %}
+            </div>
+            <div class="col-md-3">
+                <h2>Latest Tweets</h2>
+                {% if page.latest_tweets %}
+                    {{ page.latest_tweets }}
+                {% endif %}
+            </div>
+            <div class="col-md-3">
+                <h2>Get in Touch</h2>
+                {% if page.get_touch %}
+                    {{ page.get_touch }}
+                {% endif %}
+            </div>
+
+        </div>
+        <div class = "footer_bottom col-md-12">
+            ©2015 Red Crackle All Rights Reserved.
+        </div>
+    </div>
+</div>
+
+
