@@ -607,6 +607,9 @@ p.looking_forward {
 .protfolio .protfoliotile {
   background: #40b4e5;
 }
+.protfolio .protfolio_title_image img {
+  max-height: 350px;
+}
 .protfolio .protfolio_title span {
   font-family: OpenSans;
   font-size: 24px;
