@@ -5,3 +5,4 @@ stripe:
     js/stripe.js: {}
   dependencies:
       - core/jquery
+      - core/drupalSettings

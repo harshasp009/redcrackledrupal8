@@ -6,6 +6,7 @@ use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Component\Utility\UrlHelper;
 use \Drupal\node\Entity\Node;
+
 class stripePaymentForm extends FormBase {
 
   /**
@@ -171,7 +172,7 @@ class stripePaymentForm extends FormBase {
     $effectiveDate = date('Y-m-d', strtotime("+3 months", strtotime($current_date)));
     $trial_date = strtotime($effectiveDate);
     try {
-      \Stripe\Stripe::setApiKey('sk_test_FGKO5Gth3N8GvqoAR7rSCq8a');
+      \Stripe\Stripe::setApiKey(SECRET_KEY);
       $customer = \Stripe\Customer::create(array(
           "source" => $stripeToken,
           'email' => $e_mail,
@@ -207,10 +208,7 @@ class stripePaymentForm extends FormBase {
   public function _send_mails($e_mail, $full_name,$plan) {
     $key = 'stripe_mail';
     $to = $e_mail;
-    $text = "<p>Hi ".$full_name.",</p>";
-    $text .= "<p>Thank You for signup for the plan ".$plan.". We will contact you as soon as possible.</p>";
-    $text .= "<p><strong>Thank You,</strong><br />";
-    $text .= "Team Redcrackle</p>";
+    $text = "Thank You for signup for the plan ".$plan.". We will contact you as soon as possible.";
     $params['message'] = $text ;
     $langcode = \Drupal::currentUser()->getPreferredLangcode();
     $send = true;

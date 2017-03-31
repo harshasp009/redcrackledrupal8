@@ -3,7 +3,9 @@
 use Drupal\Core\Render\Markup;
 
 function stripe_payment_page_attachments(array &$attachments) {
+  $stripe_publish_key = \Drupal::config('stripe_publish_key.settings')->get('stripe_publish_key');
   $attachments['#attached']['library'][] = 'stripe_payment/stripe';
+  //$attachments['#attached']['drupalSettings']['stripe']['publishkey'] = $stripe_publish_key;
 }
 
 function stripe_payment_mail($key, &$message, $params) {
