@@ -6,7 +6,7 @@ global-styling:
       hero/css/style.css: {}
   js:
      js/custom-script.js: {}
-     //load.sumome.com/: {type: external, attributes: { async: async, data-sumo-site-id: 2ebc5c4614c2439f10dd6d444b5fd6a3001ee7c81162844fbf4c19e2142be1ae } }
+
   dependencies:
         - core/jquery
 particle:
