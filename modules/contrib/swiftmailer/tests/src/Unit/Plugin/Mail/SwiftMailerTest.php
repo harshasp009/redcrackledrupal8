@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\Tests\swiftmailer\Unit\Plugin\Mail\SwiftMailerTest
- */
-
 namespace Drupal\Tests\swiftmailer\Unit\Plugin\Mail;
 
 use Drupal\Component\Render\FormattableMarkup;
@@ -32,14 +27,14 @@ class SwiftMailerTest extends \PHPUnit_Framework_TestCase {
       'Hello World',
       'Hello <strong>World</strong>',
       new FormattableMarkup('Hello World #@number', ['@number' => 2]),
-      Markup::create('Hello <strong>World</strong>')
+      Markup::create('Hello <strong>World</strong>'),
     ];
 
     $result = [
       'Hello World',
       'Hello &lt;strong&gt;World&lt;/strong&gt;',
       'Hello World #2',
-      'Hello <strong>World</strong>'
+      'Hello <strong>World</strong>',
     ];
 
     $message = $method->invoke($mailer, ['body' => $body]);

@@ -5,11 +5,9 @@ description: Installs Swift Mailer as a mail system.
 package: Mail
 dependencies:
   - mailsystem
-test_dependencies:
-  - mailsystem
 
-# Information added by Drupal.org packaging script on 2016-09-25
-version: '8.x-1.0-alpha2'
+# Information added by Drupal.org packaging script on 2017-02-15
+version: '8.x-1.0-beta1'
 core: '8.x'
 project: 'swiftmailer'
-datestamp: 1474809845
+datestamp: 1487203090

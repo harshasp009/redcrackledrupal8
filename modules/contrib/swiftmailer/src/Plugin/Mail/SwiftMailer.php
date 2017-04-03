@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\swiftmailer\Plugin\Mail\SwiftMailer.
- */
-
 namespace Drupal\swiftmailer\Plugin\Mail;
 
 use Drupal\Component\Render\MarkupInterface;
@@ -123,7 +118,7 @@ class SwiftMailer implements MailInterface, ContainerFactoryPluginInterface {
 
       if ($this->config['message']['convert_mode'] || !empty($message['params']['convert'])) {
         $converter = new Html2Text($message['body']);
-        $message['plain'] = $converter->get_text();
+        $message['plain'] = $converter->getText();
       }
     }
 
@@ -182,7 +177,7 @@ class SwiftMailer implements MailInterface, ContainerFactoryPluginInterface {
       $suppressable_headers = swiftmailer_get_supressable_headers();
 
       // Keep track of whether we need to respect the provided e-mail
-      // format or not
+      // format or not.
       $respect_format = $this->config['message']['respect_format'];
 
       // Process headers provided by Drupal. We want to add all headers which
@@ -359,6 +354,7 @@ class SwiftMailer implements MailInterface, ContainerFactoryPluginInterface {
       }
 
       // Send the message.
+      Conversion::swiftmailer_filter_message($m);
       return $mailer->send($m);
     }
     catch (Exception $e) {
@@ -504,7 +500,6 @@ class SwiftMailer implements MailInterface, ContainerFactoryPluginInterface {
    *
    * @return string
    *   A string being the applicable format.
-   *
    */
   private function getApplicableFormat($message) {
     // Get the configured default format.
@@ -526,7 +521,8 @@ class SwiftMailer implements MailInterface, ContainerFactoryPluginInterface {
 
       if (preg_match('/.*\;/U', $format, $matches)) {
         $applicable_format = trim(substr($matches[0], 0, -1));
-      } else {
+      }
+      else {
         $applicable_format = $message['headers']['Content-Type'];
       }
 
@@ -544,7 +540,6 @@ class SwiftMailer implements MailInterface, ContainerFactoryPluginInterface {
    *
    * @return string
    *   A string being the applicable charset.
-   *
    */
   private function getApplicableCharset($message) {
 
@@ -569,7 +564,8 @@ class SwiftMailer implements MailInterface, ContainerFactoryPluginInterface {
       if ($format > 0) {
         $applicable_charset = trim(substr($matches[0], 0, -1));
         $applicable_charset = preg_replace('/charset=/', '', $applicable_charset);
-      } else {
+      }
+      else {
         $applicable_charset = $default_charset;
       }
 
@@ -594,7 +590,7 @@ class SwiftMailer implements MailInterface, ContainerFactoryPluginInterface {
     $line_endings = Settings::get('mail_line_endings', PHP_EOL);
     $message['body'] = Markup::create(implode($line_endings, array_map(function ($body) {
       // If $item is not marked safe then it will be escaped.
-      return $body instanceOf MarkupInterface ? $body : Html::escape($body);
+      return $body instanceof MarkupInterface ? $body : Html::escape($body);
     }, $message['body'])));
     return $message;
   }
