@@ -9,6 +9,7 @@ libraries:
   - redcrackle/global-styling
   - redcrackle/particle
   - redcrackle/dropdown-submenu
+  - redcrackle/threemax
 # Regions
 regions:
   header: Header

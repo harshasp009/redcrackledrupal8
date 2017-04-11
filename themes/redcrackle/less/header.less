@@ -1,6 +1,8 @@
 @import 'variables.less';
 
-
+body {
+  font-size: 100%;
+}
 header.navbar {
   background-color: #ffffff;
   border:none;
@@ -10,7 +12,6 @@ header.navbar {
     margin-bottom: 45px;
     color: @text_color;
     font-family: @font-family-opensans;
-    font-size: 16px;
     font-weight: 400;
     div.need_quotes {
       float: right;
@@ -39,7 +40,6 @@ header.navbar {
   }
   nav ul.nav li {
     font-family: @font-family-cabin;
-    font-size: 16px;
     font-weight: 500;
     letter-spacing: 1px;
     color: @footer_color;
@@ -60,10 +60,10 @@ header.navbar {
     border-left: 4px solid transparent;
   }
   nav ul.nav li ul {
-    background: @navbar_hover_color;
+    background: #535353;
   }
   nav ul.nav li ul li ul {
-    background: @footer_color;
+    background: #535353;
   }
   nav ul.nav li ul li, nav ul.nav li ul li ul li {
     width: 300px;
@@ -74,7 +74,7 @@ header.navbar {
     line-height: 19px;
   }
   nav ul.nav li.open a:focus, nav ul.nav li.open a:hover {
-    color: @menu_hover_color;
+    color: #a3b6b4;
     background-color: transparent;
   }
   ul.nav li:hover {
@@ -92,7 +92,7 @@ header.navbar {
 
 div.soc-links ul {
   list-style: none;
-  font-size: 20px;
+  font-size: 1.25em;
   li {
     float: left;
     padding-right: 10px;

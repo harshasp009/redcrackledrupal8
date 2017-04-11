@@ -9,25 +9,25 @@
 <div class="container-fluid footer_wrapper">
     <div class="container">
         <div class="footer">
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <h2>About Us</h2>
                 {% if page.about_us %}
                     {{ page.about_us }}
                 {% endif %}
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <h2>From Our Blog</h2>
                 {% if page.from_blog %}
                     {{ page.from_blog }}
                 {% endif %}
             </div>
-            <div class="col-md-3">
-                <h2>Latest Tweets</h2>
-                {% if page.latest_tweets %}
-                    {{ page.latest_tweets }}
-                {% endif %}
-            </div>
-            <div class="col-md-3">
+            {#<div class="col-md-3">#}
+                {#<h2>Latest Tweets</h2>#}
+                {#{% if page.latest_tweets %}#}
+                    {#{{ page.latest_tweets }}#}
+                {#{% endif %}#}
+            {#</div>#}
+            <div class="col-md-4">
                 <h2>Get in Touch</h2>
                 {% if page.get_touch %}
                     {{ page.get_touch }}
@@ -36,7 +36,7 @@
 
         </div>
         <div class = "footer_bottom col-md-12">
-            ©2015 Red Crackle All Rights Reserved.
+            ©2017 Red Crackle All Rights Reserved.
         </div>
     </div>
 </div>

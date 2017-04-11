@@ -20,7 +20,7 @@ particlesJS('particles-js',
     {
       "particles": {
         "number": {
-          "value": 95,
+          "value": 50,
           "density": {
             "enable": true,
             "value_area": 950
@@ -30,17 +30,17 @@ particlesJS('particles-js',
           "value": "#717c89"
         },
         "shape": {
-          "type": "circle",
+          "type": "image",
           "stroke": {
             "width": 0,
             "color": "#717c89"
           },
           "polygon": {
-            "nb_sides": 5
+            "nb_sides": 4
           },
           "image": {
-            "src": "img/github.svg",
-            "width": 100,
+            "src": "https://d35408cyocioye.cloudfront.net/legacy/hex10a.png",
+            "width": 87,
             "height": 100
           }
         },
@@ -66,14 +66,14 @@ particlesJS('particles-js',
         },
         "line_linked": {
           "enable": true,
-          "distance": 150,
+          "distance": 160,
           "color": "#a3b6b4",
           "opacity": 0.25,
           "width": 2
         },
         "move": {
           "enable": true,
-          "speed": 3,
+          "speed": 6,
           "direction": "none",
           "random": false,
           "straight": false,
@@ -81,8 +81,8 @@ particlesJS('particles-js',
           "bounce": false,
           "attract": {
             "enable": false,
-            "rotateX": 250,
-            "rotateY": 500
+            "rotateX": 700,
+            "rotateY": 1200
           }
         }
       },
@@ -90,11 +90,11 @@ particlesJS('particles-js',
         "detect_on": "canvas",
         "events": {
           "onhover": {
-            "enable": false,
-            "mode": "repulse"
+            "enable": true,
+            "mode": "grab"
           },
           "onclick": {
-            "enable": false,
+            "enable": true,
             "mode": "push"
           },
           "resize": true

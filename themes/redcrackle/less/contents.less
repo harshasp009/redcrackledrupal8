@@ -3,8 +3,15 @@
 div.banner {
   border: 1px solid #e8eef2;
   width: 100%;
-  height: 436.5px;
-  margin-top: 30px;
+  height: 500px;
+  margin-top: 0;
+  //padding-top: 45px;
+
+  #map {
+    width: 1080px !important;
+    height: 480px !important;
+  }
+
 
   .region-banner {
       position: relative;
@@ -13,13 +20,13 @@ div.banner {
       line-height: 20px;
   }
   canvas.particles-js-canvas-el {
-    margin-top: -205px;
+    margin-top: -270px;
   }
-  p.banner-header {
+  p.banner-header  {
     width: 100%;
     height: 80px;
     font-family: OpenSans;
-    font-size: 36px;
+    font-size: 2.25em;
     font-weight: 300;
     line-height: 1;
     color: #36413e;
@@ -28,18 +35,40 @@ div.banner {
     width: 100%;
     height: 54px;
     font-family: OpenSans;
-    font-size: 18px;
+    font-size: 1.13em;
     font-weight: 300;
     color: #717c89;
     margin-top: 30px;
     margin-bottom: 20px;
   }
-  .banner-link {
+  .banner-link  {
     width: 320px;
     height: 70px;
     background-color: #fb1d00;
     padding: 12px;
     color: #fff;
+  }
+  div.hero_content {
+    font-family: OpenSans;
+    font-size: 1.50em;
+    font-weight: 300;
+    line-height: 36px;
+    color: #36413e;
+  }
+  div.read_more_case {
+    padding-top: 5%;
+    a {
+      background-color: #fb1d00;
+      padding: 12px;
+      color: #fff;
+    }
+  }
+  div.views-field-nothing {
+    padding-top: 5%;
+  }
+  #views_slideshow_cycle_teaser_section_home_page_slideshow-block_1 {
+    min-height: 250px !important;
+    height: auto !important;
   }
 }
 
@@ -50,8 +79,10 @@ div.banner {
   .views-col {
     border: 1px solid #e8eef2;
     height: 149px;
-    padding: 45px 0 0 100px;
     width: 490px;
+    padding-top: 45px;
+    display: flex;
+    justify-content: center;
   }
   img {
     width: 50px;
@@ -63,7 +94,7 @@ div.banner {
     margin-top: 20px;
     color: #717c89;
     font-family: OpenSans-Semibold;
-    font-size: 18px;
+    font-size: 1.13em;
     width: 160px;
   }
   .glyphicon-phone:before, .glyphicon-earphone:before {
@@ -79,7 +110,7 @@ div.banner {
     content: "\f1a9";
     float: left;
     margin-top: 5px;
-    font-size: 40px;
+    font-size: 2.50em;
     color: #36413e;
     margin-right: 8px;
   }
@@ -110,7 +141,7 @@ div.banner {
   margin-top: 66px;
   h2.featured-case-study {
     font-family: OpenSans;
-    font-size: 24px;
+    font-size: 1.50em;
     font-weight: 400;
     letter-spacing: 1.2px;
     color: #717c89;
@@ -141,7 +172,7 @@ div.banner {
   }
   .views-field-title  a {
     font-family: Cabin;
-    font-size: 20px;
+    font-size: 1.25em;
     font-weight: 500;
     letter-spacing: 1px;
     color: #36413e;
@@ -161,7 +192,6 @@ div.banner {
   }
   .views-field-body p {
     font-family: OpenSans;
-    font-size: 16px;
     font-weight: 400;
     color: #717c89;
     line-height: 25px;
@@ -191,7 +221,6 @@ div.banner {
   }
   .more-link a {
     font-family: Cabin;
-    font-size: 16px;
     font-weight: 700;
     letter-spacing: 1px;
     color: #717c89;
@@ -227,7 +256,7 @@ div.req_qoutes {
     width: 197px;
     height: 27px;
     font-family: OpenSans;
-    font-size: 20px;
+    font-size: 1.25em;
     font-weight: 400;
     color: #ffffff;
   }
@@ -238,7 +267,7 @@ div.req_qoutes {
     padding: 15px;
     color: #fff;
     font-family: Cabin;
-    font-size: 20px;
+    font-size: 1.25em;
     font-weight: 700;
     letter-spacing: 2px;
   }
@@ -286,7 +315,6 @@ form.contact-message-feedback-form {
     width: 100%;
     height: 22px;
     font-family: OpenSans;
-    font-size: 16px;
     font-weight: 600;
     letter-spacing: 1.6px;
     color: #717c89 !important;
@@ -318,7 +346,7 @@ h2.cnt_header {
   width: 100%;
   min-height: 60px;
   font-family: OpenSans;
-  font-size: 45px;
+  font-size: 2.81em;
   font-weight: 300;
   color: #36413e;
   text-align: center;
@@ -328,7 +356,7 @@ p.interested {
   width: 100%;
   min-height: 25px;
   font-family: OpenSans;
-  font-size: 18px;
+  font-size: 1.13em;
   font-weight: 300;
   color: #717c89;
   text-align: center;
@@ -337,7 +365,7 @@ p.looking_forward {
   width: 100%;
   min-height: 25px;
   font-family: OpenSans;
-  font-size: 18px;
+  font-size: 1.13em;
   font-weight: 800;
   color: #36413e;
   text-align: center;
@@ -351,7 +379,6 @@ p.looking_forward {
 .region-contact-details {
    p.addrss {
      font-family: OpenSans;
-     font-size: 16px;
      font-weight: 400;
      color: #36413e;
      width: 100%;
@@ -362,7 +389,6 @@ p.looking_forward {
     width: 126px;
     height: 35px;
     font-family: OpenSans;
-    font-size: 16px;
     font-weight: 400;
     color: #36413e;
     border-bottom: 1px solid #e8eef2;
@@ -376,7 +402,6 @@ p.looking_forward {
     width: 157px;
     height: 22px;
     font-family: OpenSans;
-    font-size: 16px;
     font-weight: 400;
     color: #fb1d00;
     text-decoration: underline;
@@ -393,13 +418,13 @@ p.looking_forward {
 
   .protfolio_title span {
     font-family: OpenSans;
-    font-size: 24px;
+    font-size: 1.50em;
     font-weight: 400;
     color: #ffffff;
   }
   .protfolio_title h2 {
     font-family: OpenSans;
-    font-size: 35px;
+    font-size: 2.19em;
     font-weight: 700;
     color: #ffffff;
   }
@@ -409,7 +434,6 @@ p.looking_forward {
   .protfolio_about {
     min-height: 108px;
     font-family: OpenSans;
-    font-size: 16px;
     font-weight: 400;
     color: #717c89;
     margin-top: 60px;
@@ -427,7 +451,7 @@ p.looking_forward {
   }
   .protfolio_about h2 {
     font-family: Cabin;
-    font-size: 30px;
+    font-size: 1.88em;
     font-weight: 700;
     color: #36413e;
     margin-top: 12px;
@@ -441,7 +465,7 @@ p.looking_forward {
   .protfolio_background h2 {
     height: 33px;
     font-family: OpenSans;
-    font-size: 24px;
+    font-size: 1.50em;
     font-weight: 400;
     letter-spacing: 1.2px;
     color: #a3b6b4;
@@ -453,7 +477,6 @@ p.looking_forward {
   }
   .protfolio_background .field--name-field-need p {
     font-family: OpenSans;
-    font-size: 16px;
     font-weight: 400;
     color: #717c89;
     margin-bottom: 20px;
@@ -462,7 +485,7 @@ p.looking_forward {
   .Protfolio_solution h2 {
     height: 33px;
     font-family: OpenSans;
-    font-size: 24px;
+    font-size: 1.50em;
     font-weight: 400;
     letter-spacing: 1.2px;
     color: #a3b6b4;
@@ -471,7 +494,6 @@ p.looking_forward {
   }
   .field--name-field-solution {
     font-family: OpenSans;
-    font-size: 16px;
     font-weight: 400;
     color: #717c89;
     padding-bottom: 25px;
@@ -485,7 +507,7 @@ p.looking_forward {
 
     div.field--name-field-testimonials {
       font-family: OpenSans;
-      font-size: 18px;
+      font-size: 1.13em;
       font-weight: bold;
       font-style: italic;
       font-stretch: normal;
@@ -496,7 +518,7 @@ p.looking_forward {
   .Protfolio_result h2 {
     height: 33px;
     font-family: OpenSans;
-    font-size: 24px;
+    font-size: 1.50em;
     font-weight: 400;
     letter-spacing: 1.2px;
     color: #a3b6b4;
@@ -505,7 +527,6 @@ p.looking_forward {
   }
   .field--name-field-outcome {
     font-family: OpenSans;
-    font-size: 16px;
     font-weight: 400;
     color: #717c89;
     line-height: 25px;
@@ -519,7 +540,6 @@ p.looking_forward {
     border: solid 1px #a3b6b4;
     padding: 15px;
     font-family: Cabin;
-    font-size: 16px;
     font-weight: 700;
     letter-spacing: 1px;
     color: #717c89;
@@ -537,9 +557,13 @@ p.looking_forward {
 
 .protfolioimg {
   border: 1px solid #a3b6b4;
+
+  img {
+    margin: auto;
+  }
 }
 .protcontent {
-  padding-top: 32px;
+  padding-top: 2px;
 }
 .protcontent {
   h3 {
@@ -547,7 +571,7 @@ p.looking_forward {
   }
   h3 a {
     font-family: Cabin;
-    font-size: 18px;
+    font-size: 1.13em;
     font-weight: 800;
     letter-spacing: 1px;
     color: #36413e;
@@ -556,7 +580,6 @@ p.looking_forward {
   }
   p {
     font-family: OpenSans;
-    font-size: 16px;
     color: #717c89;
     line-height: 25px;
   }
@@ -572,6 +595,31 @@ p.looking_forward {
   .morelinkprot a:hover {
     text-decoration: none;
   }
+ div.recent_extra {
+   margin-top: 25px;
+   font-size: 0.88em;
+   font-family: OpenSans;
+
+   span.recent_indus {
+     color: #a3b6b4;
+   }
+   span.recent_indus_cont {
+     margin-right: 30%;
+     font-weight: 500;
+     color: #717c8c;
+   }
+   span.recent_url a {
+     color: #ed1d25;
+     font-weight: 500;
+     cursor: pointer;
+
+     &:hover {
+       color: #ed1d25;
+       text-decoration: none;
+     }
+   }
+ }
+
 }
 .protrow {
   border-bottom: 1px solid #e8eef2;
@@ -584,20 +632,18 @@ p.looking_forward {
 
   h2 {
     font-family: OpenSans;
-    font-size: 45px;
+    font-size: 2.81em;
     font-weight: bold;
     color: #ffffff;
   }
   .protbody {
     font-family: OpenSans;
-    font-size: 16px;
     font-weight: 300;
     color: #a3b6b4;
     padding-top: 18px;
   }
   .protbody1 {
     font-family: OpenSans;
-    font-size: 15px;
     font-weight: 800;
     color: #ffffff;
     padding-top: 12px;
@@ -620,6 +666,11 @@ p.looking_forward {
   .region-prot-filter {
     margin-bottom: 20px;
   }
+  label[for=edit-field-industry-target-id] {
+    margin-top: -40px;
+    font-size: 20px;
+    color: #fff;
+  }
 }
 .cont_title {
   min-height: 100px;
@@ -630,7 +681,7 @@ p.looking_forward {
     margin: 35px 0 20px;
     border-bottom: none;
     font-family: OpenSans;
-    font-size: 30px;
+    font-size: 1.88em;
     font-weight: 300;
     color: #ffffff;
   }
@@ -638,7 +689,7 @@ p.looking_forward {
 
 .page-node-type-page .field--name-body h2 {
   font-family: Cabin;
-  font-size: 30px;
+  font-size: 1.88em;
   font-weight: bold;
   line-height: 1.13;
   letter-spacing: 1.5px;
@@ -648,7 +699,7 @@ p.looking_forward {
 }
 .page-node-type-page .field--name-body h3 {
   font-family: Cabin;
-  font-size: 24px;
+  font-size: 1.13em;
   font-weight: bold;
   line-height: 1.13;
   letter-spacing: 1.5px;
@@ -658,7 +709,6 @@ p.looking_forward {
 }
 .page-node-type-page .field--name-body p {
   font-family: OpenSans;
-  font-size: 16px;
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
@@ -670,7 +720,6 @@ p.looking_forward {
   padding-bottom: 20px;
   list-style: initial;
   font-family: OpenSans;
-  font-size: 16px;
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
@@ -689,7 +738,6 @@ p.looking_forward {
 
   ul li a {
     font-family: OpenSans;
-    font-size: 16px;
     font-weight: 300;
     color: #717c89;
   }
@@ -708,7 +756,6 @@ div .author_details {
   margin-bottom: 40px;
   color: #a3b6b4;
   font-family: OpenSans;
-  font-size: 16px;
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
@@ -722,7 +769,6 @@ div .author_details {
 }
 div.blog_body {
   font-family: OpenSans;
-  font-size: 16px;
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
@@ -742,7 +788,7 @@ div.comment_blog {
 
   h3 {
     font-family: OpenSans;
-    font-size: 18px;
+    font-size: 1.13em;
     font-weight: bold;
     font-style: normal;
     font-stretch: normal;
@@ -760,7 +806,7 @@ div.comment_blog {
 div.view-blogs, div.view-topic-view {
   h2 a {
     font-family: Cabin;
-    font-size: 30px;
+    font-size: 1.88em;
     font-weight: bold;
     font-style: normal;
     font-stretch: normal;
@@ -773,7 +819,6 @@ div.view-blogs, div.view-topic-view {
     margin-bottom: 10px;
     color: #a3b6b4;
     font-family: OpenSans;
-    font-size: 16px;
     font-weight: normal;
     font-style: normal;
     font-stretch: normal;
@@ -782,7 +827,6 @@ div.view-blogs, div.view-topic-view {
   }
   div.read_more_blog a {
     font-family: Cabin;
-    font-size: 16px;
     font-weight: bold;
     font-style: normal;
     font-stretch: normal;
@@ -827,7 +871,7 @@ section#block-testform {
 
   h2 {
     font-family: OpenSans;
-    font-size: 16px;
+    font-size: 1em;
     font-weight: bold;
     font-style: normal;
     font-stretch: normal;
@@ -838,7 +882,6 @@ section#block-testform {
 
   div.field--name-body {
     font-family: OpenSans;
-    font-size: 16px;
     font-weight: normal;
     font-style: normal;
     font-stretch: normal;
@@ -863,7 +906,7 @@ section#block-testform {
 .page-node-type-blog {
   h2 {
     font-family: OpenSans;
-    font-size: 25px;
+    font-size: 1.56em;
     font-weight: bold;
     font-style: normal;
     font-stretch: normal;
@@ -873,7 +916,7 @@ section#block-testform {
   }
   .control-label{
     font-family: OpenSans;
-    font-size: 16px;
+    font-size: 1em;
     font-weight: bold;
     font-style: normal;
     font-stretch: normal;
@@ -891,7 +934,6 @@ section#block-testform {
   div.comment_details {
     color: #a3b6b4;
     font-family: OpenSans;
-    font-size: 16px;
     font-weight: normal;
     font-style: normal;
     font-stretch: normal;
@@ -920,7 +962,7 @@ section#block-testform {
 
   ul li a {
     font-family: OpenSans;
-    font-size: 14px;
+    font-size: 0.88em;
     font-weight: normal;
     font-style: normal;
     font-stretch: normal;
@@ -931,7 +973,7 @@ section#block-testform {
   }
   h2 {
     font-family: OpenSans;
-    font-size: 25px;
+    font-size: 1.56em;
     font-weight: bold;
     font-style: normal;
     font-stretch: normal;
@@ -943,7 +985,7 @@ section#block-testform {
  #block-relatedblogpost, section#block-views-block-related-posts-block-1, section#block-views-block-related-posts-block-2, section#block-views-block-related-posts-block-3  {
    h2 {
      font-family: OpenSans;
-     font-size: 16px;
+     font-size: 1em;
      font-weight: normal;
      font-style: normal;
      font-stretch: normal;
@@ -961,7 +1003,7 @@ section#block-testform {
    }
    h1 {
      font-family: Cabin;
-     font-size: 20px;
+     font-size: 1.25em;
      font-weight: 800;
      font-style: normal;
      font-stretch: normal;
@@ -971,7 +1013,6 @@ section#block-testform {
    }
    p{
      font-family: OpenSans;
-     font-size: 16px;
      font-weight: normal;
      font-style: normal;
      font-stretch: normal;
@@ -980,7 +1021,6 @@ section#block-testform {
    }
    a {
      font-family: Cabin;
-     font-size: 16px;
      font-weight: 500;
      font-style: normal;
      font-stretch: normal;
@@ -997,7 +1037,7 @@ section#block-testform {
  }
    h2 {
      font-family: OpenSans;
-     font-size: 25px;
+     font-size: 1.56em;
      font-weight: bold;
      font-style: normal;
      font-stretch: normal;
@@ -1007,7 +1047,7 @@ section#block-testform {
    }
    .control-label {
      font-family: OpenSans;
-     font-size: 16px;
+     font-size: 1em;
      font-weight: bold;
      font-style: normal;
      font-stretch: normal;
@@ -1024,7 +1064,6 @@ section#block-testform {
    height: 60px;
    padding: 5px;
    font-family: OpenSans;
-   font-size: 16px;
    font-weight: 400;
 
    .form-item-message {
@@ -1067,7 +1106,7 @@ section#block-testform {
    }
    h4 {
      font-family: Cabin;
-     font-size: 30px;
+     font-size: 1.88em;
      font-weight: bold;
      line-height: 1.13;
      letter-spacing: 1.5px;
@@ -1075,7 +1114,6 @@ section#block-testform {
    }
    .form-item-message {
      font-family: Cabin;
-     font-size: 16px;
      font-weight: normal;
      line-height: 1.13;
      letter-spacing: 1.5px;
@@ -1149,7 +1187,7 @@ section#block-testform {
 div.cont_title {
   p.fullservice_para {
     font-family: OpenSans;
-    font-size: 20px;
+    font-size: 1.25em;
     font-weight: 300;
     font-style: normal;
     font-stretch: normal;
@@ -1190,7 +1228,7 @@ div.nav-tabs-custom {
   }
   div.tab-content {
     h1 {
-      font-size: 48px;
+      font-size: 3em;
       font-weight: 300;
       font-style: normal;
       font-stretch: normal;
@@ -1202,7 +1240,7 @@ div.nav-tabs-custom {
     }
     p {
       font-family: OpenSans;
-      font-size: 20px;
+      font-size: 1.25em;
       font-weight: 300;
       font-style: normal;
       font-stretch: normal;
@@ -1214,7 +1252,7 @@ div.nav-tabs-custom {
       margin-top: 20px;
       h3 {
         font-family: Cabin;
-        font-size: 20px;
+        font-size: 1.25em;
         font-weight: 500;
         font-style: normal;
         font-stretch: normal;
@@ -1224,7 +1262,7 @@ div.nav-tabs-custom {
       }
       p {
         font-family: OpenSans;
-        font-size: 14px;
+        font-size: 0.88em;
         font-weight: 300;
         font-style: normal;
         font-stretch: normal;
@@ -1257,7 +1295,7 @@ div.nav-tabs-custom {
     }
     p.could_easier_para {
       font-family: OpenSans;
-      font-size: 20px;
+      font-size: 1.25em;
       font-weight: 300;
       font-style: normal;
       font-stretch: normal;
@@ -1272,7 +1310,7 @@ div.nav-tabs-custom {
       td {
         text-align: center;
         font-family: Cabin;
-        font-size: 24px;
+        font-size: 1.50em;
         font-weight: bold;
         font-style: normal;
         font-stretch: normal;
@@ -1286,7 +1324,7 @@ div.nav-tabs-custom {
       }
       p.price {
         font-family: OpenSans;
-        font-size: 30px;
+        font-size: 1.88em;
         font-weight: 300;
         font-style: normal;
         font-stretch: normal;
@@ -1308,7 +1346,7 @@ div.nav-tabs-custom {
         }
       }
       p.price_check {
-        font-size: 14px;
+        font-size: 0.88em;
         color: #36413e;
 
         .fa-check {
@@ -1324,7 +1362,7 @@ div.nav-tabs-custom {
     div.question {
       min-height: 80px;
       h3 {
-        font-size: 20px;
+        font-size: 1.25em;
         font-weight: 600;
         font-style: normal;
         font-stretch: normal;
@@ -1334,7 +1372,6 @@ div.nav-tabs-custom {
       }
       p {
         font-family: OpenSans;
-        font-size: 16px;
         font-weight: 300;
         font-style: normal;
         font-stretch: normal;
@@ -1414,4 +1451,31 @@ div.view-blogs,div.view-topic-view, div.view-recent-project {
   }
 }
 
+@media screen and (min-width: 1600px) {
+ p {
+   font-size: 1.250em;
+ }
+}
+.block-views-exposed-filter-blockrecent-project-page-1 {
+  div.form-item-field-industry-target-id {
+    display: block !important;
+
+    select#edit-field-industry-target-id {
+      width: 100% !important;
+      border: 1px solid #e8eef2;
+      background-color: #36413e;
+      color: #fff;
+      display: block !important;
+      height: 45px;
+    }
+
+    div.select-wrapper:after {
+      color: #a3b6b4;
+    }
+    div.select-wrapper {
+      width: 100%;
+    }
+  }
+
+}
 

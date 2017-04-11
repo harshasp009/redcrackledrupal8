@@ -12,6 +12,14 @@
 //$('span.close_news').on('click', function() {
 //  $('.simple_news_block').slideUp("slow");
 //})
+/* added this line to change the view exposed filter using onchange functionality  */
+  if($('.views-exposed-form select').length){
+    // Your change function
+    $('.views-exposed-form select').change(function() {
+      // Submit the form
+      $(this).parents('form').submit();
+    });
+  }
 })(jQuery);
 
 

@@ -5,8 +5,16 @@
 <div class = "protcontent col-md-8">
     <h3>{{ fields.title.content }}</h3>
     {{ fields.body.content }}
+  <div class="recent_extra">
+      <span class="recent_indus"> Industry:</span> <span class="recent_indus_cont"> {{ fields.field_industry.content }} </span>
+      <span class="recent_indus"> URL:</span> <span class="recent_url"> {{ fields.field_portfolio_url.content }} </span>
+  </div>
+
     <div class = "morelinkprot">
-        <a href = "/node/{{ row.nid }}">FULL CASE STUDY </a>
+        {#<a href = "/custom_modal_api_controller/{{ row.nid }}" class="use-ajax" data-dialog-type="modal"  >FULL CASE STUDY</a>#}
+        {#<a href = "javascript:void(0)"  data-toggle="modal" data-target="#myModal" id = "{{ row.nid }}"  >FULL CASE STUDY</a>#}
+        <a href = "/node/{{ row.nid }}" >FULL CASE STUDY</a>
+
     </div>
 </div>
 </div>

@@ -20,9 +20,14 @@
 
     {#<div class="container-fluid">#}
         <div class="banner">
-            <div id="particles-js">
-                {{ page.banner }}
-                </div>
+            {#<div id="particles-js">#}
+                {#<div class="container">#}
+                    {#{{ page.banner }}#}
+                {#</div>#}
+            {#</div>#}
+            <div class="container">
+            <canvas id="map"></canvas>
+            </div>
         </div>
         {% if page.tile_content %}
             <div class="tile">
