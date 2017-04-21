@@ -9,13 +9,6 @@ global-styling:
 
   dependencies:
         - core/jquery
-particle:
-  js:
-    hero/js/particles.js: {}
-    hero/js/app.js: {}
-    hero/js/lib/stats.js: {}
-  dependencies:
-      - core/jquery
 threemax:
   js:
     https://cdnjs.cloudflare.com/ajax/libs/three.js/r72/three.min.js: {type: external}

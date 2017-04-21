@@ -71,7 +71,7 @@
     camera.lookAt(centerVector);
     scene.add(camera);
 
-    texture = THREE.ImageUtils.loadTexture("http://mamboleoo.be/lab/transparentMap.png", undefined, function() {
+    texture = THREE.ImageUtils.loadTexture("/themes/redcrackle/img/transparentMap.png", undefined, function() {
       imagedata = getImageData(texture.image);
       drawTheMap();
     });
