@@ -9,13 +9,7 @@ global-styling:
 
   dependencies:
         - core/jquery
-threemax:
-  js:
-    https://cdnjs.cloudflare.com/ajax/libs/three.js/r72/three.min.js: {type: external}
-    https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js: {type: external}
-    js/heroscript.js: {}
-  dependencies:
-      - core/jquery
+
 dropdown-submenu:
   js:
     js/dropdown-submenu.js: {}

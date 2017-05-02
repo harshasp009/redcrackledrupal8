@@ -1,0 +1,8 @@
+<?php
+
+function custom_function_preprocess_page(&$vars) {
+  $is_front = \Drupal::service('path.matcher')->isFrontPage();
+  if($is_front) {
+    $vars['#attached']['library'][] =  'custom_function/particle';
+  }
+}

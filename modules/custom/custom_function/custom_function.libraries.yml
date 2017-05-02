@@ -1,0 +1,7 @@
+particle:
+  js:
+    hero/js/particles.js: {}
+    hero/js/app.js: {}
+    hero/js/lib/stats.js: {}
+  dependencies:
+      - core/jquery

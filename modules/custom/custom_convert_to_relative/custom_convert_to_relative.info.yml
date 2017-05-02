@@ -1,0 +1,5 @@
+name: convert absolute to relative
+type: module
+description: it converts absolute to relative.
+core: 8.x
+package: custom
