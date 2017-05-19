@@ -1,5 +1,17 @@
+{%
+set classes = [
+node.bundle|clean_class,
+node.isPromoted() ? 'is-promoted',
+node.isSticky() ? 'is-sticky',
+not node.isPublished() ? 'is-unpublished',
+view_mode ? view_mode|clean_class,
+'clearfix',
+]
+%}
+<article{{ attributes.addClass(classes) }}>
 <div class = "row">
   <div class="col-md-8">
+      {#<div class="sharethis-inline-share-buttons"></div>#}
       <div class = "author_details">
     <i class="fa fa-user" aria-hidden="true"></i> By {{ node.Owner.name.value }} <i class="fa fa-calendar" aria-hidden="true"></i> {{ date }} <i class="fa fa-comment" aria-hidden="true"></i> {{ comment_count }} Comments
     </div>
@@ -15,3 +27,4 @@
         {{ blog_searchs }}
     </div>
 </div>
+</article>
