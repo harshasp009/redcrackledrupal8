@@ -10,7 +10,7 @@ view_mode ? view_mode|clean_class,
 %}
 <article{{ attributes.addClass(classes) }}>
 <div class = "row">
-  <div class="col-md-8">
+  <div class="col-md-12">
       {#<div class="sharethis-inline-share-buttons"></div>#}
       <div class = "author_details">
     <i class="fa fa-user" aria-hidden="true"></i> By {{ node.Owner.name.value }} <i class="fa fa-calendar" aria-hidden="true"></i> {{ date }} <i class="fa fa-comment" aria-hidden="true"></i> {{ comment_count }} Comments
@@ -23,8 +23,8 @@ view_mode ? view_mode|clean_class,
           {{ content.comment_node_blog }}
       </div>
   </div>
-    <div class="col-md-4">
-        {{ blog_searchs }}
-    </div>
+    {#<div class="col-md-4">#}
+        {#{{ blog_searchs }}#}
+    {#</div>#}
 </div>
 </article>
