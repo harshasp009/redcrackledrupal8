@@ -1063,6 +1063,16 @@ div.view-topic-view div.views-row {
   border-bottom: 1px solid #e8eef2;
   min-height: 150px;
 }
+div.view-blogs h2 {
+  margin-top: 0px;
+}
+div.view-blogs div.author_details {
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+div.view-blogs div.views-row {
+  padding-bottom: 25px;
+}
 .path-blogs div.region-blog-search {
   margin-top: 45px;
 }

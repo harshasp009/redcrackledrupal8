@@ -102,7 +102,7 @@ function redcrackle_preprocess_node(&$variables) {
   }
 
   $variables['blog_searchs'] = $build;
-
+  $variables['currentpath'] = $current_path = \Drupal::service('path.current')->getPath();
 
 
 }
@@ -151,5 +151,30 @@ function redcrackle_theme_suggestions_page_alter(array &$suggestions, array $var
   if ($node = \Drupal::routeMatch()->getParameter('node')) {
     $content_type = $node->bundle();
     $suggestions[] = 'page__'.$content_type;
+  }
+}
+
+function redcrackle_preprocess_html(&$variables) {
+  // Set up the tag structure that's always the same no matter what page you're on
+  $tag = array(
+   '#tag' => 'meta',
+   '#attributes' => array(
+    'name' => 'description',
+    'content' => FALSE,
+   ),
+  );
+
+  // Switch on the current page path. Apparently Drupal 8 paths have leading slashes now
+  switch(\Drupal::service('path.current')->getPath()) {
+    case '/blog':
+      $tag['#attributes']['content'] = 'This blog discusses new features in Drupal and optimal ways to make use of existing features. There are useful articles for both beginners and experts. Content for the landing page provided.';
+      break;
+  }
+
+  // Only add the tag if an option matched the current path
+  if($tag['#attributes']['content']) {
+    // 'THEMENAME_meta_description' is my best guess for a good identifier.
+    // Maybe there's something better?
+    $variables['page']['#attached']['html_head'][] = array($tag, 'redcrackle_meta_description');
   }
 }

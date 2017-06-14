@@ -11,6 +11,11 @@ view_mode ? view_mode|clean_class,
 <article{{ attributes.addClass(classes) }}>
 <div class = "row">
   <div class="col-md-12">
+      {% if currentpath == '/blog' %}
+          <h2{{ title_attributes }}>
+              <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+          </h2>
+      {% endif %}
       {#<div class="sharethis-inline-share-buttons"></div>#}
       <div class = "author_details">
     <i class="fa fa-user" aria-hidden="true"></i> By {{ node.Owner.name.value }} <i class="fa fa-calendar" aria-hidden="true"></i> {{ date }} <i class="fa fa-comment" aria-hidden="true"></i> {{ comment_count }} Comments
@@ -19,6 +24,12 @@ view_mode ? view_mode|clean_class,
       <div class = "blog_body">
           {{ content.body }}
       </div>
+
+      {% if currentpath == '/blog' %}
+          <div class="read_more_blog">
+              <a href="{{ url }}" > READ MORE </a>
+          </div>
+      {% endif %}
       <div class = "comment_blog">
           {{ content.comment_node_blog }}
       </div>
