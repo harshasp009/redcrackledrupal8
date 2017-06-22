@@ -1,7 +1,7 @@
 @import "variables.less";
 
 body {
-  font-size: 16px;
+  font-size: 1.5em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: "kern" 1;
@@ -21,7 +21,7 @@ div.banner {
   margin-top: 0;
   //padding-top: 45px;
   background: url("../img/banner-geometric.png") no-repeat 0 center;
-  background-size: 100% 500px;
+  background-size: 100% 100%;
   padding: 50px 0 115px;
   //filter: contrast(50%);
   #map {
@@ -313,9 +313,12 @@ div.req_qoutes {
 
 @media screen and (max-width: 992px) {
   .recent_proj {
-    .views-col {
-      width: 100%;
-      margin-right: 0;
+    .views-row {
+      margin-top: 0;
+
+      .col-* {
+        margin-top: 15px;
+      }
     }
     .views-field-field-portfolio-logo-image {
       width: 100%;

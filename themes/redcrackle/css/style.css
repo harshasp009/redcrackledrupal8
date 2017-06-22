@@ -262,8 +262,25 @@ span.para_color {
     top: -30%;
   }
 }
+@media screen and (max-width: 992px) {
+  div.logo_img {
+    float: left;
+  }
+  .navbar-toggle {
+    margin-top: 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  div.banner p.banner-body {
+    width: 100% !important;
+  }
+  div.banner {
+    background-size: cover !important;
+    background-position: 40% 0 !important;
+  }
+}
 body {
-  font-size: 16px;
+  font-size: 1.5em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: "kern" 1;
@@ -278,7 +295,7 @@ div.banner {
   width: 100%;
   margin-top: 0;
   background: url("../img/banner-geometric.png") no-repeat 0 center;
-  background-size: 100% 500px;
+  background-size: 100% 100%;
   padding: 50px 0 115px;
 }
 div.banner #map {
@@ -534,9 +551,11 @@ div.req_qoutes a.req_link:hover {
   text-decoration: none;
 }
 @media screen and (max-width: 992px) {
-  .recent_proj .views-col {
-    width: 100%;
-    margin-right: 0;
+  .recent_proj .views-row {
+    margin-top: 0;
+  }
+  .recent_proj .views-row .col-* {
+    margin-top: 15px;
   }
   .recent_proj .views-field-field-portfolio-logo-image {
     width: 100%;
