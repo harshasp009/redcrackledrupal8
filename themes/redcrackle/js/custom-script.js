@@ -43,6 +43,24 @@
      );
    }
 
+  //$('button.navbar-toggle').click(function() {
+  ////  console.log('test1');
+  ////  $('ul.navbar-nav').find('li').addClass('expanded dropdown');
+  ////  $('ul.navbar-nav').find('li ul').addClass('menu dropdown-menu');
+  ////  $('ul.navbar-nav').find('li a').addClass('dropdown-toggle');
+  ////
+  ////
+  ////} else {
+  //    console.log($('ul.navbar-nav > li:nth-child(1) a').text());
+  //        $('ul.navbar-nav > li:nth-child(2)').addClass('open');
+  //    //$('ul.navbar-nav').find('li').removeClass('expanded dropdown');
+  //    //$('ul.navbar-nav').find('li ul').removeClass('menu dropdown-menu');
+  //    //$('ul.navbar-nav').find('li a').removeClass('dropdown-toggle');
+  //    //$('ul.navbar-nav').find('li a').removeAttr('data-target data-toggle')
+  ////}
+  //});
+
+
 
   //$(".nav li.expanded a span.caret").click(function() {
   //    alert("clicked");

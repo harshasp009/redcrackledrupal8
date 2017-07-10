@@ -1,8 +1,12 @@
 <?php
 
-function custom_function_preprocess_page(&$vars) {
-  $is_front = \Drupal::service('path.matcher')->isFrontPage();
-  if($is_front) {
-    $vars['#attached']['library'][] =  'custom_function/particle';
+function custom_function_preprocess_node(&$vars) {
+//  $is_front = \Drupal::service('path.matcher')->isFrontPage();
+//  if($is_front) {
+//    $vars['#attached']['library'][] =  'custom_function/particle';
+//  }
+  $type = $vars['node']->getType();
+  if($type == 'blog') {
+    $vars['#attached']['library'][] =  'custom_function/shareThis';
   }
 }

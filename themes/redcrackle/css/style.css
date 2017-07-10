@@ -1038,7 +1038,8 @@ div.comment_blog h3 {
   text-transform: capitalize;
 }
 div.view-blogs h2 a,
-div.view-topic-view h2 a {
+div.view-topic-view h2 a,
+div.view-drupal-planet h2 a {
   font-family: Cabin;
   font-size: 1.25em;
   font-weight: bold;
@@ -1049,7 +1050,8 @@ div.view-topic-view h2 a {
   text-decoration: none;
 }
 div.view-blogs .author_details_view,
-div.view-topic-view .author_details_view {
+div.view-topic-view .author_details_view,
+div.view-drupal-planet .author_details_view {
   margin-top: 10px;
   margin-bottom: 10px;
   color: #a3b6b4;
@@ -1061,7 +1063,8 @@ div.view-topic-view .author_details_view {
   word-spacing: 4px;
 }
 div.view-blogs div.read_more_blog a,
-div.view-topic-view div.read_more_blog a {
+div.view-topic-view div.read_more_blog a,
+div.view-drupal-planet div.read_more_blog a {
   font-family: Cabin;
   font-weight: bold;
   font-style: normal;
@@ -1072,24 +1075,29 @@ div.view-topic-view div.read_more_blog a {
   background-color: #717c89;
 }
 div.view-blogs div.read_more_blog,
-div.view-topic-view div.read_more_blog {
+div.view-topic-view div.read_more_blog,
+div.view-drupal-planet div.read_more_blog {
   padding-top: 25px;
 }
 div.view-blogs div.views-row,
-div.view-topic-view div.views-row {
+div.view-topic-view div.views-row,
+div.view-drupal-planet div.views-row {
   padding-top: 45px;
   padding-bottom: 50px;
   border-bottom: 1px solid #e8eef2;
   min-height: 150px;
 }
-div.view-blogs h2 {
+div.view-blogs h2,
+div.view-drupal-planet h2 {
   margin-top: 0px;
 }
-div.view-blogs div.author_details {
+div.view-blogs div.author_details,
+div.view-drupal-planet div.author_details {
   margin-top: 20px;
   margin-bottom: 15px;
 }
-div.view-blogs div.views-row {
+div.view-blogs div.views-row,
+div.view-drupal-planet div.views-row {
   padding-bottom: 25px;
 }
 .path-blogs div.region-blog-search {
@@ -1700,6 +1708,16 @@ div.view-recent-project .pagination>li>a {
 }
 .block-views-exposed-filter-blockrecent-project-page-1 div.form-item-field-industry-target-id div.select-wrapper {
   width: 100%;
+}
+@media screen and (min-width: 1600px) {
+  body {
+    font-size: 1.8em;
+  }
+}
+@media screen and (min-width: 2048px) {
+  body {
+    font-size: 2.1em;
+  }
 }
 div.footer_wrapper {
   background-color: #36413e;
