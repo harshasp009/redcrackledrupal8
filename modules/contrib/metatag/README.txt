@@ -135,12 +135,12 @@ Option 1:
 
 Option 2:
 
-  $node = Node::create(array(
+  $node = Node::create([
     'type' => article,
     'langcode' => 'en',
     'status' => 1,
     'uid' => 1,
-  ));
+  ]);
   $node->set('title', 'Testing metatag creation');
   $node->set('field_meta_tags', serialize([
     'title' => 'Some title',
@@ -182,6 +182,11 @@ functionality:
 * Schema Metatag
   https://www.drupal.org/project/schema_metatag
   Extensive solution for adding schema.org support to Metatag.
+
+* Context Metadata
+  https://www.drupal.org/project/context_metadata
+  Allow assignment of meta tags based upon different system contexts, e.g. per
+  path.
 
 * Real-time SEO for Drupal
   https://www.drupal.org/project/yoast_seo
