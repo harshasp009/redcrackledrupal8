@@ -522,16 +522,9 @@ div.banner #views_slideshow_cycle_teaser_section_home_page_slideshow-block_1 {
   transition: all .8s ease;
 }
 div.req_qoutes {
-  height: 210px;
   background-color: #a3b6b4;
 }
-div.req_qoutes div.region-requuest-quotes {
-  text-align: center;
-  margin-top: 85px;
-}
 div.req_qoutes span.req_quot {
-  width: 197px;
-  height: 27px;
   font-family: OpenSans;
   font-size: 1.25em;
   font-weight: 400;
@@ -540,7 +533,7 @@ div.req_qoutes span.req_quot {
 div.req_qoutes a.req_link {
   height: 70px;
   background-color: #fb1d00;
-  padding: 15px;
+  padding: 25px 58px;
   color: #fff;
   font-family: Cabin;
   font-size: 1.25em;
@@ -570,18 +563,6 @@ div.req_qoutes a.req_link:hover {
   }
   header.navbar .logo_img img {
     width: 250px;
-  }
-}
-@media screen and (max-width: 398px) {
-  div.req_qoutes div.region-requuest-quotes {
-    text-align: inherit;
-  }
-  div.req_qoutes span.req_quot {
-    float: left;
-  }
-  div.req_qoutes span.reqlink {
-    float: left;
-    margin-top: 20px;
   }
 }
 form.contact-message-feedback-form label {
@@ -1718,6 +1699,29 @@ div.view-recent-project .pagination>li>a {
   body {
     font-size: 2.1em;
   }
+}
+div.req_qoutes {
+  background-image: url(/themes/redcrackle/img/banner-geometric.png);
+  background-position: -426px 439px;
+}
+div.req_qoutes img {
+  opacity: 0.8;
+}
+div.readyToStart {
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: white;
+}
+@media screen and (min-width: 992px) {
+  div.readyToStart {
+    margin-left: 234px;
+  }
+}
+div.containerForQuote {
+  height: 210px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 }
 div.footer_wrapper {
   background-color: #36413e;
