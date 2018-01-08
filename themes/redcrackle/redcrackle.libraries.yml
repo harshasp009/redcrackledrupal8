@@ -3,7 +3,6 @@ global-styling:
     theme:
       css/style.css: {}
       font-awesome/css/font-awesome.min.css: {}
-      hero/css/style.css: {}
   js:
      js/custom-script.js: {}
 
