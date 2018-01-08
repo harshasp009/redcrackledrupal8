@@ -31,7 +31,7 @@ function sumome_tools_library_info_build() {
         ],
       ],
     ],
-    'dependencies' => ['sumome_tools'],
+    // 'dependencies' => ['sumome_tools'],
   ];
 
   return $libraries;
