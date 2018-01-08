@@ -1,0 +1,14 @@
+name: SumoMe Tools
+description: A module to install the SumoMe tools on D8.
+package: Custom
+type: module
+# core: 8.x
+configure: sumome_tools.form
+test_dependencies:
+  - php:php
+
+# Information added by Drupal.org packaging script on 2017-04-20
+version: '8.x-1.1'
+core: '8.x'
+project: 'sumome_tools'
+datestamp: 1492708745
