@@ -7,7 +7,7 @@ global-styling:
      js/custom-script.js: {}
 
   dependencies:
-        - core/jquery
+   - core/jquery
 
 dropdown-submenu:
   js:
