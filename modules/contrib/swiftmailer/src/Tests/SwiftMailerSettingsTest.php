@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * Contains \Drupal\swiftmailer\Tests\SwiftMailerSettingsTest.
+ */
 
 namespace Drupal\swiftmailer\Tests;
 
@@ -45,51 +49,48 @@ class SwiftMailerSettingsTest extends WebTestBase {
     $this->drupalGet(t('admin/config/swiftmailer/transport'));
     $this->assertText(t('Transport types'));
 
-    // Select Smtp tranport option.
-    $this->drupalPostAjaxForm(NULL, ['transport[type]' => 'smtp'], ['transport[type]' => 'smtp']);
+    //Select Smtp tranport option.
+    $this->drupalPostAjaxForm(NULL, [ 'transport[type]' => 'smtp' ], ['transport[type]' => 'smtp']);
     $this->drupalPostForm(NULL, [
       'transport[type]' => 'smtp',
-      'transport[configuration][smtp][credential_provider]' => 'swiftmailer',
-      'transport[configuration][smtp][credentials][swiftmailer][username]' => 'example',
-      'transport[configuration][smtp][credentials][swiftmailer][password]' => 'pass',
+      'transport[configuration][smtp][username]' => 'example',
+      'transport[configuration][smtp][password]' => 'pass'
     ], t('Save configuration'));
     $this->assertText('using the SMTP transport type.');
 
-    // Loading configuration to check if is set up correctly.
+    //Loading configuration to check if is set up correctly.
     $config = $this->config('swiftmailer.transport');
     $transport = $config->get('transport');
-    $provider = $config->get('smtp_credential_provider');
-    $user = $config->get('smtp_credentials.swiftmailer.username');
-    $password = $config->get('smtp_credentials.swiftmailer.password');
+    $user= $config->get('smtp_username');
+    $password= $config->get('smtp_password');
     $this->assertEqual($transport, 'smtp');
-    $this->assertEqual($provider, 'swiftmailer');
     $this->assertEqual($user, 'example');
     $this->assertEqual($password, 'pass');
 
-    // Select Sppol tranport option.
-    $this->drupalPostAjaxForm(NULL, ['transport[type]' => 'spool'], ['transport[type]' => 'spool']);
+    //Select Sppol tranport option.
+    $this->drupalPostAjaxForm(NULL, [ 'transport[type]' => 'spool' ], ['transport[type]' => 'spool']);
     $this->drupalPostForm(NULL, [
       'transport[type]' => 'spool',
-      'transport[configuration][spool][directory]' => 'aaaaa',
+      'transport[configuration][spool][directory]' => 'aaaaa'
     ], t('Save configuration'));
     $this->assertText('using the Spool transport type.');
 
-    // Loading configuration to check if is set up correctly.
+    //Loading configuration to check if is set up correctly.
     $config = $this->config('swiftmailer.transport');
     $transport = $config->get('transport');
     $directory = $config->get('spool_directory');
     $this->assertEqual($transport, 'spool');
     $this->assertEqual($directory, 'aaaaa');
 
-    // Select Sendmail tranport option.
-    $this->drupalPostAjaxForm(NULL, ['transport[type]' => 'sendmail'], ['transport[type]' => 'sendmail']);
+    //Select Sendmail tranport option.
+    $this->drupalPostAjaxForm(NULL, [ 'transport[type]' => 'sendmail' ], ['transport[type]' => 'sendmail']);
     $this->drupalPostForm(NULL, [
       'transport[type]' => 'sendmail',
-      'transport[configuration][sendmail][path]' => 'bbbbb',
+      'transport[configuration][sendmail][path]' => 'bbbbb'
     ], t('Save configuration'));
     $this->assertText('using the Sendmail transport type.');
 
-    // Loading configuration to check if is set up correctly.
+    //Loading configuration to check if is set up correctly.
     $config = $this->config('swiftmailer.transport');
     $transport = $config->get('transport');
     $path = $config->get('sendmail_path');
@@ -97,9 +98,6 @@ class SwiftMailerSettingsTest extends WebTestBase {
     $this->assertEqual($path, 'bbbbb');
   }
 
-  /**
-   * Tests the Message Settings.
-   */
   public function testMessageSettings() {
     $this->drupalGet('admin/config/swiftmailer/transport');
     $this->assertResponse(403);
@@ -116,7 +114,7 @@ class SwiftMailerSettingsTest extends WebTestBase {
     $this->drupalPostForm(NULL, [
       'format[type]' => 'text/html',
       'convert[mode]' => 'TRUE',
-      'character_set[type]' => 'EUC-CN',
+      'character_set[type]' => 'EUC-CN'
     ], t('Save configuration'));
     $this->assertText('The configuration options have been saved.');
 
@@ -128,5 +126,4 @@ class SwiftMailerSettingsTest extends WebTestBase {
     $this->assertEqual($mode, 'TRUE');
     $this->assertEqual($character, 'EUC-CN');
   }
-
 }

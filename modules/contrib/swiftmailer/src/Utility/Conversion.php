@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Contains \Drupal\swiftmailer\Utility\Conversion.
+ */
+
 namespace Drupal\swiftmailer\Utility;
 
 use Swift_Message;
@@ -54,7 +59,7 @@ class Conversion {
   /**
    * Adds a text header to a message.
    *
-   * @param \Swift_Message $message
+   * @param Swift_Message $message
    *   The message which the text header is to be added to.
    * @param string $key
    *   The header key.
@@ -80,7 +85,7 @@ class Conversion {
    * @param string $value
    *   The header value.
    *
-   * @return bool
+   * @return boolean
    *   TRUE if the provided header is a parameterized header,
    *   and otherwise FALSE.
    */
@@ -98,7 +103,7 @@ class Conversion {
   /**
    * Adds a parameterized header to a message.
    *
-   * @param \Swift_Message $message
+   * @param Swift_Message $message
    *   The message which the parameterized header is to be added to.
    * @param string $key
    *   The header key.
@@ -112,7 +117,7 @@ class Conversion {
 
     // Define variables to hold the header's value and parameters.
     $header_value = NULL;
-    $header_parameters = [];
+    $header_parameters = array();
 
     // Split the provided value by ';' (semicolon), which we assume is the
     // character is used to separate the parameters.
@@ -163,7 +168,7 @@ class Conversion {
    * @param string $value
    *   The header value.
    *
-   * @return bool
+   * @return boolean
    *   TRUE if the provided header is a date header, and otherwise FALSE.
    */
   public static function swiftmailer_is_date_header($key, $value) {
@@ -178,7 +183,7 @@ class Conversion {
   /**
    * Adds a date header to a message.
    *
-   * @param \Swift_Message $message
+   * @param Swift_Message $message
    *   The message which the date header is to be added to.
    * @param string $key
    *   The header key.
@@ -209,7 +214,7 @@ class Conversion {
    * @param string $value
    *   The header value.
    *
-   * @return bool
+   * @return boolean
    *   TRUE if the provided header is a mailbox header, and otherwise FALSE.
    */
   public static function swiftmailer_is_mailbox_header($key, $value) {
@@ -224,7 +229,7 @@ class Conversion {
   /**
    * Adds a mailbox header to a message.
    *
-   * @param \Swift_Message $message
+   * @param Swift_Message $message
    *   The message which the mailbox header is to be added to.
    * @param string $key
    *   The header key.
@@ -258,11 +263,11 @@ class Conversion {
    * @param string $value
    *   The header value.
    *
-   * @return bool
+   * @return boolean
    *   TRUE if the provided header is an id header, and otherwise FALSE.
    */
   public static function swiftmailer_is_id_header($key, $value) {
-    if (\Drupal::service('email.validator')->isValid($value) && $key == 'Message-ID') {
+    if (valid_email_address($value) && $key == 'Message-ID') {
       return TRUE;
     }
     else {
@@ -273,7 +278,7 @@ class Conversion {
   /**
    * Adds an id header to a message.
    *
-   * @param \Swift_Message $message
+   * @param Swift_Message $message
    *   The message which the id header is to be added to.
    * @param string $key
    *   The header key.
@@ -304,11 +309,11 @@ class Conversion {
    * @param string $value
    *   The header value.
    *
-   * @return bool
+   * @return boolean
    *   TRUE if the provided header is a path header, and otherwise FALSE.
    */
   public static function swiftmailer_is_path_header($key, $value) {
-    if (\Drupal::service('email.validator')->isValid($value) && $key == 'Return-Path') {
+    if (valid_email_address($value) && $key == 'Return-Path') {
       return TRUE;
     }
     else {
@@ -319,7 +324,7 @@ class Conversion {
   /**
    * Adds a path header to a message.
    *
-   * @param \Swift_Message $message
+   * @param Swift_Message $message
    *   The message which the path header is to be added to.
    *
    * @param string $key
@@ -339,7 +344,7 @@ class Conversion {
   /**
    * Removes a header from a message.
    *
-   * @param \Swift_Message $message
+   * @param Swift_Message $message
    *   The message which the header is to be removed from.
    * @param string $key
    *   The header key.
@@ -358,20 +363,19 @@ class Conversion {
    * Converts a string holding one or more mailboxes to an array.
    *
    * @param $value
-   *   A string holding one or more mailboxes.
+   *    A string holding one or more mailboxes.
    *
    * @return array
    *   this return array
    */
   public static function swiftmailer_parse_mailboxes($value) {
-    $validator = \Drupal::service('email.validator');
 
     // Split mailboxes by ',' (comma) and ';' (semicolon).
-    $mailboxes_raw = [];
+    $mailboxes_raw = array();
     preg_match_all("/((?:^|\s){0,}(?:(?:\".*?\"){0,1}.*?)(?:$|,|;))/", $value, $mailboxes_raw);
 
     // Define an array which will keep track of mailboxes.
-    $mailboxes = [];
+    $mailboxes = array();
 
     // Iterate through each of the raw mailboxes and process them.
     foreach ($mailboxes_raw[0] as $mailbox_raw) {
@@ -386,49 +390,15 @@ class Conversion {
         $mailbox_components = explode('<', $mailbox_raw);
         $mailbox_name = trim(preg_replace("/\"/", "", $mailbox_components[0]));
         $mailbox_address = preg_replace('/>.*/', '', $mailbox_components[1]);
-        if ($validator->isValid($mailbox_address)) {
-          $mailboxes[$mailbox_address] = $mailbox_name;
-        }
+        $mailboxes[$mailbox_address] = $mailbox_name;
       }
       else {
-        $mailbox_address = preg_replace("/(,|;)/", "", $mailbox_raw);
-        if ($validator->isValid($mailbox_address)) {
-          $mailboxes[] = $mailbox_address;
-        }
+        $mailboxes[] = preg_replace("/(,|;)/", "", $mailbox_raw);
       }
+
     }
 
     return $mailboxes;
-  }
-
-  /**
-   * Filters out unwanted elements from a message.
-   *
-   * @param \Swift_Message $message
-   *   The message which unwanted elements is to be filtered out from.
-   */
-  public static function swiftmailer_filter_message(Swift_Message $message) {
-    $headers = $message->getHeaders();
-
-    $senders = $headers->get('From')->getAddresses();
-    if (!empty($senders)) {
-      for ($i = 0; $i < count($senders); $i++) {
-        if (!\Drupal::service('email.validator')->isValid($senders[$i])) {
-          $headers->remove('From', $i);
-          \Drupal::logger('swiftmailer')->warning('The invalid "From" e-mail address "@mail" was skipped.', ['@mail' => $senders[$i]]);
-        }
-      }
-    }
-
-    $recipients = $headers->get('To')->getAddresses();
-    if (!empty($recipients)) {
-      for ($i = 0; $i < count($recipients); $i++) {
-        if (!\Drupal::service('email.validator')->isValid($recipients[$i])) {
-          $headers->remove('To', $i);
-          \Drupal::logger('swiftmailer')->warning('The invalid "To" e-mail address "@mail" was skipped.', ['@mail' => $recipients[$i]]);
-        }
-      }
-    }
   }
 
 }

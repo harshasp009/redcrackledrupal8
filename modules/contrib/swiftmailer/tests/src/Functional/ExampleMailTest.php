@@ -1,20 +1,23 @@
 <?php
 
+/**
+ * @file
+ * Contains \Drupal\Tests\swiftmailer\Functional\ExampleMailTest.
+ */
+
 namespace Drupal\Tests\swiftmailer\Functional;
 
 use Drupal\Core\Url;
 use Drupal\Tests\BrowserTestBase;
 
-/**
- * @group swiftmailer
- */
 class ExampleMailTest extends BrowserTestBase {
 
   public static $modules = ['swiftmailer', 'mailsystem'];
 
-  /**
-   * Tests the e-mail test form.
-   */
+  protected function setUp() {
+    parent::setUp();
+  }
+
   public function testForm() {
     $account = $this->createUser(['administer swiftmailer']);
     $this->drupalLogin($account);
