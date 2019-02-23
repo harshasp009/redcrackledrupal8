@@ -195,17 +195,9 @@ class Twig_Loader_Filesystem implements Twig_LoaderInterface, Twig_ExistsLoaderI
             throw new Twig_Error_Loader($this->errorCache[$name]);
         }
 
-        try {
-            $this->validateName($name);
+        $this->validateName($name);
 
-            list($namespace, $shortname) = $this->parseName($name);
-        } catch (Twig_Error_Loader $e) {
-            if (!$throw) {
-                return false;
-            }
-
-            throw $e;
-        }
+        list($namespace, $shortname) = $this->parseName($name);
 
         if (!isset($this->paths[$namespace])) {
             $this->errorCache[$name] = sprintf('There are no registered paths for namespace "%s".', $namespace);
